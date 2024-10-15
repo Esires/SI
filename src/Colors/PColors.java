@@ -10,12 +10,17 @@ public class PColors {
 
     // Estableix colors de l'App
     void setColors(PApplet p5){
-        this.colors = new int[5];
+        this.colors = new int[10];
         this.colors[0] = p5.color(0xFFFFFFFF);
-        this.colors[1] = p5.color(0xFF39315E);
-        this.colors[2] = p5.color(0xFF6D9DC5);
-        this.colors[3] = p5.color(0xFF80DED9);
-        this.colors[4] = p5.color(0xFFAEECEF);
+        this.colors[1] = p5.color(0xFF000000);
+        this.colors[2] = p5.color(0xFF22316E);
+        this.colors[3] = p5.color(0xFF3DB147);
+        this.colors[4] = p5.color(0xFFD3CB0B);
+        this.colors[5] = p5.color(0xFF792671);
+        this.colors[6] = p5.color(0xFF3270C2);
+        this.colors[7] = p5.color(0xFFED4E85);
+        this.colors[8] = p5.color(0xFFE32C4A);
+        this.colors[9] = p5.color(0xFF7BA547);
     }
 
     // Getter del número de colors
