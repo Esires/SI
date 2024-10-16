@@ -14,12 +14,12 @@ public class PColors {
         this.colors[0] = p5.color(0xFFFFFFFF);
         this.colors[1] = p5.color(0xFF000000);
         this.colors[2] = p5.color(0xFF22316E);
-        this.colors[3] = p5.color(0xFF3DB147);
-        this.colors[4] = p5.color(0xFFD3CB0B);
+        this.colors[3] = p5.color(0xFF00F5B0);
+        this.colors[4] = p5.color(0xFFE6C509);
         this.colors[5] = p5.color(0xFF792671);
-        this.colors[6] = p5.color(0xFF3270C2);
-        this.colors[7] = p5.color(0xFFED4E85);
-        this.colors[8] = p5.color(0xFFE32C4A);
+        this.colors[6] = p5.color(0xFF00D4FF);
+        this.colors[7] = p5.color(0xFFFF76D3);
+        this.colors[8] = p5.color(0xFFFF0000);
         this.colors[9] = p5.color(0xFF7BA547);
     }
 
