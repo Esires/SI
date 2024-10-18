@@ -16,7 +16,7 @@ public class Tipografies {
     void setFonts(PApplet p5){
         this.fonts = new PFont[3];
         this.fonts[0] = p5.createFont("data/NostalgicWhispers-Regular.ttf", Mides.midaTitol);
-        this.fonts[1] = p5.createFont("data/Refile.ttf", Mides.midaBotons);
+        this.fonts[1] = p5.createFont("data/Refile.otf", Mides.midaBotons);
         this.fonts[2] = p5.createFont("data/SofiaFrancesca.ttf", Mides.midaTextIDesplegables);
     }
 
