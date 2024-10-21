@@ -8,5 +8,5 @@ public class Mides {
     public static float logoWidth  = 250, logoHeight = 250;
 
     // Dimensions Imatges
-    public static float columnWidth  = 505, columnHeight = 720;
+    public static float imageWeight  = 400, imageHeight = 400;
 }
