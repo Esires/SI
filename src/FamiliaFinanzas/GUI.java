@@ -63,7 +63,7 @@ public class GUI {
     }
 
     public void dibuixaSideBar(PApplet p5){
-        // Zona Sidebar ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // Zona Sidebar
         p5.fill(50,200,100);
         p5.rect(marginH, 2*marginV + logoHeight, sidebarWidth, sidebarHeight);
         p5.fill(0);
