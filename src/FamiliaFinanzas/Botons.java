@@ -1,4 +1,4 @@
-package Buttons;
+package FamiliaFinanzas;
 import processing.core.PApplet;
 
 public class Botons {
