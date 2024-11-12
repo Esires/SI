@@ -1,5 +1,6 @@
 package FamiliaFinanzas;
 
+import Pantalles.Mides;
 import processing.core.PApplet;
 
 public class MainApp extends PApplet {
@@ -8,7 +9,7 @@ public class MainApp extends PApplet {
 
 
     public static void main(String[] args) {
-        PApplet.main("trivioAppBotons.Trivio005", args);
+        PApplet.main("FamiliaFinanzas.MainApp", args);
     }
 
     public void settings(){
@@ -21,6 +22,8 @@ public class MainApp extends PApplet {
         noStroke();                         // Sense bordes
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
         gui = new GUI(this);                   // Constructor de la Buttons.GUI
+
+        Mides.sidebarX = width - (Mides.sidebarWidth + 20);
     }
 
     public void draw(){
