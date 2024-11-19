@@ -21,9 +21,8 @@ public class MainApp extends PApplet {
     public void setup(){
         noStroke();                         // Sense bordes
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
-        gui = new GUI(this);                   // Constructor de la Buttons.GUI
-
         Mides.sidebarX = width - (Mides.sidebarWidth + 20);
+        gui = new GUI(this);// Constructor de la Buttons.GUI
     }
 
     public void draw(){
@@ -33,10 +32,10 @@ public class MainApp extends PApplet {
             case INICIAL:   gui.dibuixaPantallaInicial(this);
                 break;
 
-            case ABOUT:     gui.dibuixaPantallaAbout(this);
+            case ABOUT:     gui.dibuixaPantallaInici(this);
                 break;
 
-            case DETALLS:   gui.dibuixaPantallaDetalls(this);
+            case DETALLS:   gui.dibuixaPantallaRegistre(this);
                 break;
         }
 
@@ -47,7 +46,7 @@ public class MainApp extends PApplet {
 
     // Estableix quin cursor emprar (HAND, ARROW)
     public void updateCursor(){
-        if(gui.b1.updateHandCursor(this) || gui.b2.updateHandCursor(this)|| gui.b3.updateHandCursor(this) || gui.b4.updateHandCursor(this)){
+        if(gui.bCasa.updateHandCursor(this) || gui.bEscola.updateHandCursor(this)|| gui.bEsports.updateHandCursor(this) || gui.bFamilia.updateHandCursor(this) || gui.bGrafics.updateHandCursor(this) || gui.bIngressos.updateHandCursor(this)){
             cursor(HAND);
         }
         else {
@@ -72,21 +71,17 @@ public class MainApp extends PApplet {
     // ******************* MOUSE interaction ***************************** //
 
     public void mousePressed(){
-        if(gui.b1.mouseOverButton(this)){
+        if(gui.bCasa.mouseOverButton(this)){
             println("HAS FET CLIC SOBRE EL BOTÓ B1");
-            gui.b4.setEnabled(true);
-            gui.b4.setTextBoto("ENABLED");
         }
-        else if(gui.b2.mouseOverButton(this)){
+        else if(gui.bEscola.mouseOverButton(this)){
             println("HAS FET CLIC SOBRE EL BOTÓ B2");
         }
-        else if(gui.b3.mouseOverButton(this)){
+        else if(gui.bEsports.mouseOverButton(this)){
             println("HAS FET CLIC SOBRE EL BOTÓ B3");
         }
-        else if(gui.b4.mouseOverButton(this)){
+        else if(gui.bFamilia.mouseOverButton(this)){
             println("HAS FET CLIC SOBRE EL BOTÓ B4");
-            gui.b4.setEnabled(false);
-            gui.b4.setTextBoto("DISABLED");
         }
     }
 

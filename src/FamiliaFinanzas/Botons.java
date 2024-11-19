@@ -9,6 +9,7 @@ public class Botons {
     String textBoto;  // Text
     boolean enabled;  // Estat del botó (actiu / inactiu).
 
+
     // Constructor
     public Botons(PApplet p5, String text, float x, float y, float w, float h){
         this.textBoto = text;
@@ -56,6 +57,7 @@ public class Botons {
             p5.fill(fillColor);          // Color actiu però ratolí fora
         }
         p5.stroke(strokeColor); p5.strokeWeight(2);        //Color i gruixa del contorn
+        p5.rectMode(p5.CORNER);
         p5.rect(this.x, this.y, this.w, this.h, 10);    // Rectangle del botó
 
         // Text (color, alineació i mida)

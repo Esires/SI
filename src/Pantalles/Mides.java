@@ -14,5 +14,5 @@ public class Mides {
     public static float sidebarWidth  = 300, sidebarHeight = 1040;
 
     // Posició SideBar
-    public static float sidebarX = 0, sidebarY = 0;
+    public static float sidebarX = 600, sidebarY = 0;
 }
