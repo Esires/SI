@@ -1,5 +1,7 @@
 package FamiliaFinanzas;
+import Fonts.Tipografies;
 import processing.core.PApplet;
+import processing.core.PFont;
 
 public class Botons {
 
@@ -8,7 +10,7 @@ public class Botons {
     int fillColorOver, fillColorDisabled;  // Colors del boto (actiu / inactiu).
     String textBoto;  // Text
     boolean enabled;  // Estat del botó (actiu / inactiu).
-
+    PFont [] tipografies;
 
     // Constructor
     public Botons(PApplet p5, String text, float x, float y, float w, float h){
@@ -22,6 +24,7 @@ public class Botons {
         this.fillColorOver = p5.color(255, 55, 155);
         this.fillColorDisabled = p5.color(150);
         this.strokeColor = p5.color(0);
+        this.tipografies = new PFont[3];
     }
 
     // Setters
