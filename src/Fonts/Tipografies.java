@@ -19,7 +19,7 @@ public class Tipografies {
         this.fonts = new PFont[3];
         this.fonts[0] = p5.createFont("data/NostalgicWhispers-Regular.ttf", Mides.midaTitol);
         this.fonts[1] = p5.createFont("data/Refile.otf", Mides.midaBotons);
-        this.fonts[2] = p5.createFont("data/SofiaFrancesca.ttf", Mides.midaTextIDesplegables);
+        this.fonts[2] = p5.createFont("data/SophiaFrancesca.ttf", Mides.midaTextIDesplegables);
     }
 
     // Getter del número de fonts

@@ -3,6 +3,7 @@ package FamiliaFinanzas;
 import Colors.PColors;
 import Fonts.Tipografies;
 import processing.core.PApplet;
+import processing.core.PImage;
 
 import static Pantalles.Mides.*;
 
@@ -15,16 +16,18 @@ public class GUI {
     public PANTALLA pantallaActual;
 
     // Components de la Buttons.GUI
-    Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos;
+    Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos, bRegistrar, bEntrar, bVolver;
     Tipografies fontsGUI;
     PColors colorsGUI;
     TextField t1, t2;
+    PImage logo;
 
     // Constructor de la Buttons.GUI
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
         pantallaActual = PANTALLA.INICIAL;
+        logo = loadImatge("Logo.jpg");
 
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+25, sidebarY+150, 250, 100);
@@ -33,6 +36,9 @@ public class GUI {
         bFamilia = new Botons(p5, "Familia i Oci", sidebarX+25, sidebarY+750, 250, 100);
         bGrafics = new Botons(p5, "Gràfics", 400, 800, 350, 200);
         bIngressos = new Botons(p5, "Ingressos", 900, 800, 350, 200);
+        bRegistrar = new Botons(p5, "Registrarse", 900, 850,350, 150);
+        bEntrar = new Botons(p5,"Entrar", 1300,850, 350, 150 );
+        bVolver = new Botons(p5, "Volver", 1300, 200, 200, 100);
     }
 
 
@@ -45,6 +51,8 @@ public class GUI {
         p5.background(255);
         dibuixaLogo(p5);
         dibuixaSideBar(p5);
+        bRegistrar.display(p5);
+        bEntrar.display(p5);
     }
 
     public void dibuixaPantallaInici(PApplet p5){
@@ -57,16 +65,16 @@ public class GUI {
         p5.background(245);
         dibuixaLogo(p5);
         dibuixaSideBar(p5);
+        bRegistrar.display(p5);
+        bVolver.display(p5);
     }
 
 
     // ZONES DE LA Buttons.GUI
 
     public void dibuixaLogo(PApplet p5){
-        p5.fill(200,50,100);
-        p5.rect(marginH, marginV, logoWidth, logoHeight);
-        p5.fill(0);
-        p5.text("LOGO", marginH + logoWidth/2, marginV + logoHeight/2);
+        p5.imageMode(p5.CENTER);
+        p5.image(logo, marginH, marginV, logoWidth, logoHeight);
     }
 
     public void dibuixaSideBar(PApplet p5){
@@ -82,6 +90,14 @@ public class GUI {
         bFamilia.display(p5);
         bGrafics.display(p5);
         bIngressos.display(p5);
+    }
+    //Zona TextFields
+    public void dibuixaUsuari(PApplet p5){
+
+    }
+
+    public void dibuixaContrasenya(PApplet p5){
+
     }
 
 }
