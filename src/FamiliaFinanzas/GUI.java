@@ -27,7 +27,7 @@ public class GUI {
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
         pantallaActual = PANTALLA.INICIAL;
-        logo = loadImatge("Logo.jpg");
+        logo = p5.loadImage("Logo.jpg");
 
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+25, sidebarY+150, 250, 100);
