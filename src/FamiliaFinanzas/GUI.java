@@ -10,7 +10,7 @@ import static Pantalles.Mides.*;
 public class GUI {
 
     // Enumerat de les Pantalles de l'App
-    public enum PANTALLA {INICIAL, DETALLS, ABOUT};
+    public enum PANTALLA {INICIAL, INICI, REGISTRAR, CASA, ESPORTS, GRAFICS, INGRESOS, OCI, ESCOLA};
 
     // Pantalla Actual
     public PANTALLA pantallaActual;
@@ -27,8 +27,8 @@ public class GUI {
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
         pantallaActual = PANTALLA.INICIAL;
-        logo = p5.loadImage("Logo.jpg");
-
+        logo = p5.loadImage("LogoEntrar.jpg");
+        //t1 = new TextField(p5, );
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+25, sidebarY+150, 250, 100);
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+25, sidebarY+350, 250, 100);
@@ -36,8 +36,8 @@ public class GUI {
         bFamilia = new Botons(p5, "Familia i Oci", sidebarX+25, sidebarY+750, 250, 100);
         bGrafics = new Botons(p5, "Gràfics", 400, 800, 350, 200);
         bIngressos = new Botons(p5, "Ingressos", 900, 800, 350, 200);
-        bRegistrar = new Botons(p5, "Registrarse", 900, 850,350, 150);
-        bEntrar = new Botons(p5,"Entrar", 1300,850, 350, 150 );
+        bRegistrar = new Botons(p5, "Registrarse", 900, 750,350, 150);
+        bEntrar = new Botons(p5,"Entrar", 1300,750, 350, 150 );
         bVolver = new Botons(p5, "Volver", 1300, 200, 200, 100);
     }
 
@@ -48,33 +48,62 @@ public class GUI {
 
     public void dibuixaPantallaInicial(PApplet p5){
 
-        p5.background(255);
-        dibuixaLogo(p5);
+        p5.background(colorsGUI.getFirstColor());
+        //dibuixaLogo(p5);
         dibuixaSideBar(p5);
+        bCasa.display(p5);
+        bEscola.display(p5);
+        bEsports.display(p5);
+        bFamilia.display(p5);
+        bGrafics.display(p5);
+        bIngressos.display(p5);
+    }
+
+    public void dibuixaPantallaInici(PApplet p5){
+        p5.background(colorsGUI.getFirstColor());
+        dibuixaLogoEntrar(p5);
         bRegistrar.display(p5);
         bEntrar.display(p5);
     }
 
-    public void dibuixaPantallaInici(PApplet p5){
-        p5.background(245);
-        dibuixaLogo(p5);
-
-    }
-
     public void dibuixaPantallaRegistre(PApplet p5){
-        p5.background(245);
-        dibuixaLogo(p5);
+        p5.background(colorsGUI.getFirstColor());
+        dibuixaLogoEntrar(p5);
         dibuixaSideBar(p5);
         bRegistrar.display(p5);
         bVolver.display(p5);
     }
 
+    public void dibuixaPantallaCasa(PApplet p5){
+        p5.background(colorsGUI.getFirstColor());
+    }
+
+    public void dibuixaPantallaOci(PApplet p5){
+        p5.background(colorsGUI.getFirstColor());
+    }
+
+    public void dibuixaPantallaGrafic(PApplet p5){
+        p5.background(colorsGUI.getFirstColor());
+    }
+
+    public void dibuixaPantallaEsport(PApplet p5){
+        p5.background(colorsGUI.getFirstColor());
+    }
+
+    public void dibuixaPantallaIngresos(PApplet p5){
+        p5.background(colorsGUI.getFirstColor());
+    }
+
+    public void dibuixaPantallaEscola(PApplet p5){
+        p5.background(colorsGUI.getFirstColor());
+    }
+
 
     // ZONES DE LA Buttons.GUI
 
-    public void dibuixaLogo(PApplet p5){
-        p5.imageMode(p5.CENTER);
-        p5.image(logo, marginH, marginV, logoWidth, logoHeight);
+    public void dibuixaLogoEntrar(PApplet p5){
+        p5.imageMode(p5.CORNER);
+        p5.image(logo, marginH+75, marginV+75, logoWidth, logoHeight);
     }
 
     public void dibuixaSideBar(PApplet p5){
@@ -83,13 +112,6 @@ public class GUI {
         p5.rectMode(p5.CORNER);
         p5.rect(sidebarX, sidebarY, sidebarWidth, sidebarHeight);
         p5.fill(0);
-
-        bCasa.display(p5);
-        bEscola.display(p5);
-        bEsports.display(p5);
-        bFamilia.display(p5);
-        bGrafics.display(p5);
-        bIngressos.display(p5);
     }
     //Zona TextFields
     public void dibuixaUsuari(PApplet p5){

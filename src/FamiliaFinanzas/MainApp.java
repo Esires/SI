@@ -32,15 +32,35 @@ public class MainApp extends PApplet {
             case INICIAL:   gui.dibuixaPantallaInicial(this);
                 break;
 
-            case ABOUT:     gui.dibuixaPantallaInici(this);
+            case INICI:     gui.dibuixaPantallaInici(this);
                 break;
 
-            case DETALLS:   gui.dibuixaPantallaRegistre(this);
+            case REGISTRAR:   gui.dibuixaPantallaRegistre(this);
+                break;
+
+            case GRAFICS: gui.dibuixaPantallaGrafic(this);
+                break;
+
+            case OCI: gui.dibuixaPantallaOci(this);
+                break;
+
+            case ESPORTS: gui.dibuixaPantallaEsport(this);
+                break;
+
+            case INGRESOS: gui.dibuixaPantallaIngresos(this);
+                break;
+
+            case CASA: gui.dibuixaPantallaCasa(this);
+                break;
+
+            case ESCOLA: gui.dibuixaPantallaEscola(this);
                 break;
         }
 
         // Actualitza el cursor
         updateCursor();
+
+        text(gui.pantallaActual.toString(), 100, 100);
 
     }
 
@@ -61,10 +81,10 @@ public class MainApp extends PApplet {
             gui.pantallaActual = GUI.PANTALLA.INICIAL;
         }
         else if(key=='1'){
-            gui.pantallaActual = GUI.PANTALLA.DETALLS;
+            gui.pantallaActual = GUI.PANTALLA.INICI;
         }
         else if(key=='2'){
-            gui.pantallaActual = GUI.PANTALLA.ABOUT;
+            gui.pantallaActual = GUI.PANTALLA.REGISTRAR;
         }
     }
 

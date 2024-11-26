@@ -1,6 +1,5 @@
 package FamiliaFinanzas;
 import Fonts.Mides;
-import Fonts.Tipografies;
 import processing.core.PApplet;
 import processing.core.PFont;
 
@@ -29,6 +28,10 @@ public class Botons {
     }
 
     // Setters
+
+    public void setTipografia(PFont tipografia) {
+        this.tipografia = tipografia;
+    }
 
     public void setEnabled(boolean b){
         this.enabled = b;
@@ -65,7 +68,7 @@ public class Botons {
         p5.rect(this.x, this.y, this.w, this.h, 10);    // Rectangle del botó
 
         // Text (color, alineació i mida)
-        p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(20);
+        p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(Mides.midaBotons);p5.textFont(tipografia);
         p5.text(textBoto, this.x + this.w/2, this.y + this.h/2 + 10);
         p5.popStyle();
     }

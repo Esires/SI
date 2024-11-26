@@ -24,12 +24,12 @@ public class PColors {
     }
 
     // Getter del número de colors
-    int getNumColors(){
+    public int getNumColors(){
         return this.colors.length;
     }
 
     // Getter del color primari
-    int getFirstColor(){
+    public int getFirstColor(){
         return  this.colors[0];
     }
 
