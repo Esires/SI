@@ -92,16 +92,22 @@ public class MainApp extends PApplet {
 
     public void mousePressed(){
         if(gui.bCasa.mouseOverButton(this)){
-            println("HAS FET CLIC SOBRE EL BOTÓ B1");
+            gui.pantallaActual = GUI.PANTALLA.CASA;
         }
         else if(gui.bEscola.mouseOverButton(this)){
-            println("HAS FET CLIC SOBRE EL BOTÓ B2");
+            gui.pantallaActual = GUI.PANTALLA.ESCOLA;
         }
         else if(gui.bEsports.mouseOverButton(this)){
-            println("HAS FET CLIC SOBRE EL BOTÓ B3");
+            gui.pantallaActual = GUI.PANTALLA.ESPORTS;
         }
         else if(gui.bFamilia.mouseOverButton(this)){
-            println("HAS FET CLIC SOBRE EL BOTÓ B4");
+            gui.pantallaActual = GUI.PANTALLA.OCI;
+        }
+        else if (gui.bGrafics.mouseOverButton(this)) {
+            gui.pantallaActual = GUI.PANTALLA.GRAFICS;
+        }
+        else if (gui.bIngressos.mouseOverButton(this)) {
+            gui.pantallaActual = GUI.PANTALLA.INGRESOS;
         }
     }
 
