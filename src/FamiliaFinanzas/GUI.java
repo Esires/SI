@@ -19,16 +19,16 @@ public class GUI {
     Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos, bRegistrar, bEntrar, bVolver;
     Tipografies fontsGUI;
     PColors colorsGUI;
-    TextField t1, t2;
+    TextField tUsuari;
     PImage logo;
 
     // Constructor de la Buttons.GUI
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        pantallaActual = PANTALLA.INICIAL;
+        pantallaActual = PANTALLA.INICI;
         logo = p5.loadImage("LogoEntrar.jpg");
-        //t1 = new TextField(p5, );
+        tUsuari = new TextField(p5,100, 100, textFieldW, textFieldH );
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+25, sidebarY+150, 250, 100);
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+25, sidebarY+350, 250, 100);
@@ -64,6 +64,7 @@ public class GUI {
         dibuixaLogoEntrar(p5);
         bRegistrar.display(p5);
         bEntrar.display(p5);
+        tUsuari.display(p5);
     }
 
     public void dibuixaPantallaRegistre(PApplet p5){

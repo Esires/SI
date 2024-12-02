@@ -17,5 +17,5 @@ public class Mides {
     public static float sidebarX = 600, sidebarY = 0;
 
     // Mides TextField
-    public static float textFieldW = 400, textFieldH =100;
+    public static int textFieldW = 400, textFieldH =100;
 }

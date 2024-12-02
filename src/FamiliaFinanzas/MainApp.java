@@ -109,8 +109,7 @@ public class MainApp extends PApplet {
         else if (gui.bIngressos.mouseOverButton(this)) {
             gui.pantallaActual = GUI.PANTALLA.INGRESOS;
         }
-        else if (gui.bVolver.mouseOverButton(this) && (GUI.PANTALLA.OCI || GUI.PANTALLA.ESCOLA || GUI.PANTALLA.ESPORTS || GUI.PANTALLA.CASA || GUI.PANTALLA.GRAFICS || GUI.PANTALLA.INGRESOS == gui.pantallaActual))
-        {
+        else if (gui.bVolver.mouseOverButton(this) && !(gui.pantallaActual == GUI.PANTALLA.REGISTRAR)){
             gui.pantallaActual = GUI.PANTALLA.INICI;
         }
         else if (gui.bVolver.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.REGISTRAR){
@@ -118,12 +117,12 @@ public class MainApp extends PApplet {
         }
     }
 
-    public void mouseDragged(){
+    /*public void mouseDragged(){
         println("MOUSE DRAGGED");
     }
 
     public void mouseReleased() {
         println("MOUSE RELEASED");
-    }
+    }*/
 
 }
