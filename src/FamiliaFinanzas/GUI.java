@@ -10,25 +10,30 @@ import static Pantalles.Mides.*;
 public class GUI {
 
     // Enumerat de les Pantalles de l'App
-    public enum PANTALLA {INICIAL, INICI, REGISTRAR, CASA, ESPORTS, GRAFICS, INGRESOS, OCI, ESCOLA};
+    public enum PANTALLA {INICIAL, SESSIO, REGISTRAR, CASA, ESPORTS, GRAFICS, INGRESOS, OCI, ESCOLA};
 
     // Pantalla Actual
     public PANTALLA pantallaActual;
 
     // Components de la Buttons.GUI
-    Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos, bRegistrar, bEntrar, bVolver;
+    Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos, bRegistrar, bEntrar, bVolver, bEnregistret;
     Tipografies fontsGUI;
     PColors colorsGUI;
-    TextField tUsuari;
+    TextField tUsuari1, tUsuari2;
+    PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo;
 
     // Constructor de la Buttons.GUI
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        pantallaActual = PANTALLA.INICI;
+        pantallaActual = PANTALLA.REGISTRAR;
         logo = p5.loadImage("LogoEntrar.jpg");
-        tUsuari = new TextField(p5,100, 100, textFieldW, textFieldH );
+        tUsuari1 = new TextField(p5,910, 450, textFieldW, textFieldH );
+        tUsuari2 = new TextField(p5,910, 300, textFieldW, textFieldH );
+        pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
+        pContraseña1 = new PassField(p5, 910, 450, textFieldW, textFieldH);
+        pContraseña2 = new PassField(p5, 910, 600, textFieldW, textFieldH);
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+25, sidebarY+150, 250, 100);
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+25, sidebarY+350, 250, 100);
@@ -38,7 +43,8 @@ public class GUI {
         bIngressos = new Botons(p5, "Ingressos", 900, 800, 350, 200);
         bRegistrar = new Botons(p5, "Registrarse", 900, 750,350, 150);
         bEntrar = new Botons(p5,"Entrar", 1300,750, 350, 150 );
-        bVolver = new Botons(p5, "Volver", 1300, 200, 200, 100);
+        bVolver = new Botons(p5, "Volver", 1700, 75, 200, 100);
+        bEnregistret = new Botons(p5, "Enregistret",900, 750,350, 150);
     }
 
 
@@ -59,44 +65,54 @@ public class GUI {
         bIngressos.display(p5);
     }
 
-    public void dibuixaPantallaInici(PApplet p5){
+    public void dibuixaPantallaSessio(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         dibuixaLogoEntrar(p5);
         bRegistrar.display(p5);
         bEntrar.display(p5);
-        tUsuari.display(p5);
+        tUsuari1.display(p5);
+        pContraseña.display(p5);
     }
 
     public void dibuixaPantallaRegistre(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         dibuixaLogoEntrar(p5);
-        dibuixaSideBar(p5);
-        bRegistrar.display(p5);
+        bEnregistret.display(p5);
+        bEntrar.display(p5);
         bVolver.display(p5);
+        tUsuari2.display(p5);
+        pContraseña1.display(p5);
+        pContraseña2.display(p5);
     }
 
     public void dibuixaPantallaCasa(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
+        bVolver.display(p5);
     }
 
     public void dibuixaPantallaOci(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
+        bVolver.display(p5);
     }
 
     public void dibuixaPantallaGrafic(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
+        bVolver.display(p5);
     }
 
     public void dibuixaPantallaEsport(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
+        bVolver.display(p5);
     }
 
     public void dibuixaPantallaIngresos(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
+        bVolver.display(p5);
     }
 
     public void dibuixaPantallaEscola(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
+        bVolver.display(p5);
     }
 
 
@@ -104,7 +120,7 @@ public class GUI {
 
     public void dibuixaLogoEntrar(PApplet p5){
         p5.imageMode(p5.CORNER);
-        p5.image(logo, marginH+75, marginV+75, logoWidth, logoHeight);
+        p5.image(logo, marginH+175, marginV+150, logoWidth, logoHeight);
     }
 
     public void dibuixaSideBar(PApplet p5){
@@ -115,12 +131,5 @@ public class GUI {
         p5.fill(0);
     }
     //Zona TextFields
-    public void dibuixaUsuari(PApplet p5){
-
-    }
-
-    public void dibuixaContrasenya(PApplet p5){
-
-    }
 
 }

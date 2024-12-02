@@ -32,7 +32,7 @@ public class MainApp extends PApplet {
             case INICIAL:   gui.dibuixaPantallaInicial(this);
                 break;
 
-            case INICI:     gui.dibuixaPantallaInici(this);
+            case SESSIO:     gui.dibuixaPantallaSessio(this);
                 break;
 
             case REGISTRAR:   gui.dibuixaPantallaRegistre(this);
@@ -59,14 +59,11 @@ public class MainApp extends PApplet {
 
         // Actualitza el cursor
         updateCursor();
-
-        text(gui.pantallaActual.toString(), 100, 100);
-
     }
 
     // Estableix quin cursor emprar (HAND, ARROW)
     public void updateCursor(){
-        if(gui.bCasa.updateHandCursor(this) || gui.bEscola.updateHandCursor(this)|| gui.bEsports.updateHandCursor(this) || gui.bFamilia.updateHandCursor(this) || gui.bGrafics.updateHandCursor(this) || gui.bIngressos.updateHandCursor(this)){
+        if(gui.bCasa.updateHandCursor(this) || gui.bEscola.updateHandCursor(this)|| gui.bEsports.updateHandCursor(this) || gui.bFamilia.updateHandCursor(this) || gui.bGrafics.updateHandCursor(this) || gui.bIngressos.updateHandCursor(this) || gui.bVolver.updateHandCursor(this)){
             cursor(HAND);
         }
         else {
@@ -77,15 +74,11 @@ public class MainApp extends PApplet {
     // ******************* KEYBOARD interaction ***************************** //
 
     public void keyPressed(){
-        if(key=='0'){
-            gui.pantallaActual = GUI.PANTALLA.INICIAL;
-        }
-        else if(key=='1'){
-            gui.pantallaActual = GUI.PANTALLA.INICI;
-        }
-        else if(key=='2'){
-            gui.pantallaActual = GUI.PANTALLA.REGISTRAR;
-        }
+        gui.tUsuari1.keyPressed(key, keyCode);
+        gui.tUsuari2.keyPressed(key, keyCode);
+        gui.pContraseña.keyPressed(key, keyCode);
+        gui.pContraseña1.keyPressed(key, keyCode);
+        gui.pContraseña2.keyPressed(key, keyCode);
     }
 
     // ******************* MOUSE interaction ***************************** //
@@ -110,11 +103,19 @@ public class MainApp extends PApplet {
             gui.pantallaActual = GUI.PANTALLA.INGRESOS;
         }
         else if (gui.bVolver.mouseOverButton(this) && !(gui.pantallaActual == GUI.PANTALLA.REGISTRAR)){
-            gui.pantallaActual = GUI.PANTALLA.INICI;
-        }
-        else if (gui.bVolver.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.REGISTRAR){
             gui.pantallaActual = GUI.PANTALLA.INICIAL;
         }
+        else if (gui.bVolver.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.REGISTRAR){
+            gui.pantallaActual = GUI.PANTALLA.SESSIO;
+        }
+        else if (gui.bRegistrar.mouseOverButton(this)){
+            gui.pantallaActual = GUI.PANTALLA.REGISTRAR;
+        }
+        gui.tUsuari1.isPressed(this);
+        gui.tUsuari2.isPressed(this);
+        gui.pContraseña.isPressed(this);
+        gui.pContraseña1.isPressed(this);
+        gui.pContraseña2.isPressed(this);
     }
 
     /*public void mouseDragged(){

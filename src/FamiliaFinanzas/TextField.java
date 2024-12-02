@@ -14,7 +14,7 @@ public class TextField {
 
     // Text del camp
     public String text = "";
-    int textSize = 24;
+    int textSize = 50;
 
     boolean selected = false;
 

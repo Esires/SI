@@ -5,7 +5,7 @@ public class Mides {
     public static float marginH = 20, marginV = 20;
 
     // Dimensions Logo
-    public static float logoWidth  = 550, logoHeight = 550;
+    public static float logoWidth  = 600, logoHeight = 600;
 
     // Dimensions Imatges
     public static float imageWeight  = 400, imageHeight = 400;
@@ -17,5 +17,5 @@ public class Mides {
     public static float sidebarX = 600, sidebarY = 0;
 
     // Mides TextField
-    public static int textFieldW = 400, textFieldH =100;
+    public static int textFieldW = 600, textFieldH =100;
 }
