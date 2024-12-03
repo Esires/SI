@@ -72,6 +72,7 @@ public class MainApp extends PApplet {
         else {
             cursor(ARROW);
         }
+
     }
 
     // ******************* KEYBOARD interaction ***************************** //
