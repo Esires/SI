@@ -57,6 +57,9 @@ public class MainApp extends PApplet {
                 break;
         }
 
+        fill(0);
+        text(gui.pantallaActual.toString(), 100, 100);
+
         // Actualitza el cursor
         updateCursor();
     }
@@ -84,32 +87,69 @@ public class MainApp extends PApplet {
     // ******************* MOUSE interaction ***************************** //
 
     public void mousePressed(){
-        if(gui.bCasa.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.CASA;
+        if(gui.pantallaActual==GUI.PANTALLA.CASA){
+            if(gui.bVolver.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
         }
-        else if(gui.bEscola.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.ESCOLA;
+        else if(gui.pantallaActual== GUI.PANTALLA.ESPORTS){
+            if(gui.bVolver.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
         }
-        else if(gui.bEsports.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.ESPORTS;
+        else if (gui.pantallaActual==GUI.PANTALLA.SESSIO){
+            if (gui.bRegistrar.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.REGISTRAR;
+            }
         }
-        else if(gui.bFamilia.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.OCI;
+        else if (gui.pantallaActual== GUI.PANTALLA.REGISTRAR){
+            if (gui.bVolver.mouseOverButton(this)){
+                gui.pantallaActual= GUI.PANTALLA.SESSIO;
+            }
+            if (gui.bEnregistret.mouseOverButton(this) && (gui.pContraseña1 == gui.pContraseña2)){
+                gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
         }
-        else if (gui.bGrafics.mouseOverButton(this)) {
-            gui.pantallaActual = GUI.PANTALLA.GRAFICS;
+        else if (gui.pantallaActual== GUI.PANTALLA.ESCOLA){
+            if(gui.bVolver.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
         }
-        else if (gui.bIngressos.mouseOverButton(this)) {
-            gui.pantallaActual = GUI.PANTALLA.INGRESOS;
+        else if (gui.pantallaActual== GUI.PANTALLA.OCI){
+            if(gui.bVolver.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
         }
-        else if (gui.bVolver.mouseOverButton(this) && !(gui.pantallaActual == GUI.PANTALLA.REGISTRAR)){
-            gui.pantallaActual = GUI.PANTALLA.INICIAL;
+        else if (gui.pantallaActual==GUI.PANTALLA.GRAFICS){
+            if(gui.bVolver.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
         }
-        else if (gui.bVolver.mouseOverButton(this) && gui.pantallaActual == GUI.PANTALLA.REGISTRAR){
-            gui.pantallaActual = GUI.PANTALLA.SESSIO;
+        else if (gui.pantallaActual== GUI.PANTALLA.INGRESOS){
+            if(gui.bVolver.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
         }
-        else if (gui.bRegistrar.mouseOverButton(this)){
-            gui.pantallaActual = GUI.PANTALLA.REGISTRAR;
+        else if (gui.pantallaActual== GUI.PANTALLA.INICIAL){
+            if(gui.bCasa.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.CASA;
+            }
+            else if(gui.bEscola.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.ESCOLA;
+            }
+            else if(gui.bEsports.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.ESPORTS;
+            }
+            else if(gui.bFamilia.mouseOverButton(this)){
+                gui.pantallaActual = GUI.PANTALLA.OCI;
+            }
+            else if (gui.bGrafics.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.GRAFICS;
+            }
+            else if (gui.bIngressos.mouseOverButton(this)) {
+                gui.pantallaActual = GUI.PANTALLA.INGRESOS;
+            }
+
         }
         gui.tUsuari1.isPressed(this);
         gui.tUsuari2.isPressed(this);

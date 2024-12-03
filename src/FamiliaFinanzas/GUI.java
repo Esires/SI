@@ -78,7 +78,6 @@ public class GUI {
         p5.background(colorsGUI.getFirstColor());
         dibuixaLogoEntrar(p5);
         bEnregistret.display(p5);
-        bEntrar.display(p5);
         bVolver.display(p5);
         tUsuari2.display(p5);
         pContraseña1.display(p5);
