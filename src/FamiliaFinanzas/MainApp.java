@@ -92,6 +92,9 @@ public class MainApp extends PApplet {
             if(gui.bVolver.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.INICIAL;
             }
+            if(gui.s1.mouseOverSelect(this)){
+                gui.s1.toggle();
+            }
         }
         else if(gui.pantallaActual== GUI.PANTALLA.ESPORTS){
             if(gui.bVolver.mouseOverButton(this)){

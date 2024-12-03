@@ -24,6 +24,14 @@ public class GUI {
     PImage logo;
     Select s1, s2;
     String [] ss1 = {"hola", "adeu", "sí"};
+    String [] ss2 = {"hola", "adeu", "sí"};
+    String [] ss3 = {"hola", "adeu", "sí"};
+    String [] ss4 = {"hola", "adeu", "sí"};
+    String [] ss5 = {"hola", "adeu", "sí"};
+    String [] ss6 = {"hola", "adeu", "sí"};
+    String [] ss7 = {"hola", "adeu", "sí"};
+    String [] ss8 = {"hola", "adeu", "sí"};
+
 
     // Constructor de la Buttons.GUI
     public GUI(PApplet p5){
