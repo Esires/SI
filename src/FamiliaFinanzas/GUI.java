@@ -22,6 +22,7 @@ public class GUI {
     TextField tUsuari1, tUsuari2;
     PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo;
+    Select s1, s2;
 
     // Constructor de la Buttons.GUI
     public GUI(PApplet p5){
