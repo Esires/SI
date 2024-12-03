@@ -23,18 +23,20 @@ public class GUI {
     PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo;
     Select s1, s2;
+    String [] ss1 = {"hola", "adeu", "sí"};
 
     // Constructor de la Buttons.GUI
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        pantallaActual = PANTALLA.REGISTRAR;
+        pantallaActual = PANTALLA.INICIAL;
         logo = p5.loadImage("LogoEntrar.jpg");
         tUsuari1 = new TextField(p5,910, 450, textFieldW, textFieldH );
         tUsuari2 = new TextField(p5,910, 300, textFieldW, textFieldH );
         pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
         pContraseña1 = new PassField(p5, 910, 450, textFieldW, textFieldH);
         pContraseña2 = new PassField(p5, 910, 600, textFieldW, textFieldH);
+        s1 = new Select(ss1, 600, 400, 400, 100);
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+25, sidebarY+150, 250, 100);
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+25, sidebarY+350, 250, 100);
@@ -88,6 +90,7 @@ public class GUI {
     public void dibuixaPantallaCasa(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         bVolver.display(p5);
+        s1.display(p5);
     }
 
     public void dibuixaPantallaOci(PApplet p5){
