@@ -46,12 +46,12 @@ public class GUI {
         pContraseña2 = new PassField(p5, 910, 600, textFieldW, textFieldH);
         s1 = new Select(ss1, 600, 400, 400, 100);
         // Inicialització de components (botons)
-        bCasa = new Botons(p5, "Casa", sidebarX+25, sidebarY+150, 250, 100);
-        bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+25, sidebarY+350, 250, 100);
-        bEsports = new Botons(p5, "Esports", sidebarX+25, sidebarY+550, 250, 100);
-        bFamilia = new Botons(p5, "Familia i Oci", sidebarX+25, sidebarY+750, 250, 100);
-        bGrafics = new Botons(p5, "Gràfics", 400, 800, 350, 200);
-        bIngressos = new Botons(p5, "Ingressos", 900, 800, 350, 200);
+        bCasa = new Botons(p5, "Casa", sidebarX+25, sidebarY+150, 250, 100, "BotoCasa.jpg");
+        bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+25, sidebarY+350, 250, 100, "BotoEscola.jpg");
+        bEsports = new Botons(p5, "Esports", sidebarX+25, sidebarY+550, 250, 100, "BotoEsports.jpg");
+        bFamilia = new Botons(p5, "Familia i Oci", sidebarX+25, sidebarY+750, 250, 100, "BotoFamilia.jpg");
+        bGrafics = new Botons(p5, "Gràfics", 400, 800, 350, 200, "BotoGrafics.jpg");
+        bIngressos = new Botons(p5, "Ingressos", 900, 800, 350, 200, "BotoIngresos.jpg");
         bRegistrar = new Botons(p5, "Registrarse", 900, 750,350, 150);
         bEntrar = new Botons(p5,"Entrar", 1300,750, 350, 150 );
         bVolver = new Botons(p5, "Volver", 1700, 75, 200, 100);

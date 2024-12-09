@@ -2,6 +2,7 @@ package FamiliaFinanzas;
 import Fonts.Mides;
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.core.PImage;
 
 public class Botons {
 
@@ -11,6 +12,7 @@ public class Botons {
     String textBoto;  // Text
     boolean enabled;  // Estat del botó (actiu / inactiu).
     PFont tipografia;
+    PImage foto;
 
     // Constructor
     public Botons(PApplet p5, String text, float x, float y, float w, float h){
@@ -20,11 +22,25 @@ public class Botons {
         this.w = w;
         this.h = h;
         this.enabled = true;
-        this.fillColor = p5.color(155, 55, 155);
+        this.fillColor = p5.color(255);
         this.fillColorOver = p5.color(255, 55, 155);
         this.fillColorDisabled = p5.color(150);
-        this.strokeColor = p5.color(0);
+        this.strokeColor = p5.color(255);
         this.tipografia = p5.createFont("data/Refile.otf", Mides.midaBotons);
+    }
+    public Botons(PApplet p5, String text, float x, float y, float w, float h, String p){
+        this.textBoto = text;
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.enabled = true;
+        this.fillColor = p5.color(255);
+        this.fillColorOver = p5.color(255, 55, 155);
+        this.fillColorDisabled = p5.color(150);
+        this.strokeColor = p5.color(255);
+        this.tipografia = p5.createFont("data/Refile.otf", Mides.midaBotons);
+        this.foto = p5.loadImage(p);
     }
 
     // Setters
@@ -67,9 +83,13 @@ public class Botons {
         p5.rectMode(p5.CORNER);
         p5.rect(this.x, this.y, this.w, this.h, 10);    // Rectangle del botó
 
+        if (foto != null){
+            p5.image(foto, x, y, w, h);
+        }
+
         // Text (color, alineació i mida)
         p5.fill(0); p5.textAlign(p5.CENTER); p5.textSize(Mides.midaBotons);p5.textFont(tipografia);
-        p5.text(textBoto, this.x + this.w/2, this.y + this.h/2 + 10);
+        p5.text(textBoto, this.x + this.w/2, this.y + this.h+ 20);
         p5.popStyle();
     }
 
