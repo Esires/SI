@@ -22,10 +22,10 @@ public class Botons {
         this.w = w;
         this.h = h;
         this.enabled = true;
-        this.fillColor = p5.color(255);
+        this.fillColor = p5.color(155, 10 ,10);
         this.fillColorOver = p5.color(255, 55, 155);
         this.fillColorDisabled = p5.color(150);
-        this.strokeColor = p5.color(255);
+        this.strokeColor = p5.color(0);
         this.tipografia = p5.createFont("data/Refile.otf", Mides.midaBotons);
     }
     public Botons(PApplet p5, String text, float x, float y, float w, float h, String p){
