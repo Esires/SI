@@ -1,6 +1,7 @@
 package FamiliaFinanzas;
 
 import Colors.PColors;
+import Fonts.Mides;
 import Fonts.Tipografies;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -39,7 +40,7 @@ public class GUI {
         colorsGUI = new PColors(p5);
         pantallaActual = PANTALLA.SESSIO;
         logo = p5.loadImage("LogoEntrar.jpg");
-        tUsuari1 = new TextField(p5,910, 450, textFieldW, textFieldH );
+        tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );
         tUsuari2 = new TextField(p5,910, 300, textFieldW, textFieldH );
         pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
         pContraseña1 = new PassField(p5, 910, 450, textFieldW, textFieldH);
@@ -83,6 +84,9 @@ public class GUI {
         bEntrar.display(p5);
         tUsuari1.display(p5);
         pContraseña.display(p5);
+        p5.textFont(this.fontsGUI.getThirdFont());
+        p5.textSize(Mides.midaTitol);
+        p5.text("Usuari", tUsuari1.x+75, tUsuari1.y-50);
     }
 
     public void dibuixaPantallaRegistre(PApplet p5){

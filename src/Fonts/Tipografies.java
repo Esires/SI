@@ -28,22 +28,22 @@ public class Tipografies {
     }
 
     // Getter de la font primaria
-    PFont getFirstFont(){
+    public PFont getFirstFont(){
         return  this.fonts[0];
     }
 
     // Getter del font secundaria
-    PFont getSecondFont(){
+    public PFont getSecondFont(){
         return  this.fonts[1];
     }
 
     // Getter del la font terciaria
-    PFont getThirdFont(){
+    public PFont getThirdFont(){
         return  this.fonts[2];
     }
 
     // Getter de la font i-èssima
-    PFont getFontAt(int i){
+    public PFont getFontAt(int i){
         return this.fonts[i];
     }
 
