@@ -37,7 +37,7 @@ public class GUI {
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        pantallaActual = PANTALLA.INICIAL;
+        pantallaActual = PANTALLA.SESSIO;
         logo = p5.loadImage("LogoEntrar.jpg");
         tUsuari1 = new TextField(p5,910, 450, textFieldW, textFieldH );
         tUsuari2 = new TextField(p5,910, 300, textFieldW, textFieldH );
@@ -46,10 +46,10 @@ public class GUI {
         pContraseña2 = new PassField(p5, 910, 600, textFieldW, textFieldH);
         s1 = new Select(ss1, 600, 400, 400, 100);
         // Inicialització de components (botons)
-        bCasa = new Botons(p5, "Casa", sidebarX+25, sidebarY+150, 250, 100, "BotoCasa.jpg");
-        bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+25, sidebarY+350, 250, 100, "BotoEscola.jpg");
-        bEsports = new Botons(p5, "Esports", sidebarX+25, sidebarY+550, 250, 100, "BotoEsports.jpg");
-        bFamilia = new Botons(p5, "Familia i Oci", sidebarX+25, sidebarY+750, 250, 100, "BotoFamilia.jpg");
+        bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
+        bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
+        bEsports = new Botons(p5, "Esports", sidebarX+50, sidebarY+550, 200, 200, "BotoEsports.jpg");
+        bFamilia = new Botons(p5, "Familia i Oci", sidebarX+50, sidebarY+800, 200, 200, "BotoFamilia.jpg");
         bGrafics = new Botons(p5, "Gràfics", 400, 800, 350, 200, "BotoGrafics.jpg");
         bIngressos = new Botons(p5, "Ingressos", 900, 800, 350, 200, "BotoIngresos.jpg");
         bRegistrar = new Botons(p5, "Registrarse", 900, 750,350, 150);

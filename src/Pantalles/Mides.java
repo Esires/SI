@@ -11,7 +11,7 @@ public class Mides {
     public static float imageWeight  = 400, imageHeight = 400;
 
     // Dimensions Zona Lateral
-    public static float sidebarWidth  = 300, sidebarHeight = 1040;
+    public static float sidebarWidth  = 350, sidebarHeight = 1040;
 
     // Posició SideBar
     public static float sidebarX = 600, sidebarY = 0;
