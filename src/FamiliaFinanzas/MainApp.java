@@ -6,7 +6,6 @@ public class MainApp extends PApplet {
 
     GUI gui;
 
-
     public static void main(String[] args) {
         PApplet.main("FamiliaFinanzas.MainApp", args);
     }

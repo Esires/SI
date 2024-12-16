@@ -1,12 +1,7 @@
 package FamiliaFinanzas;
 
-import PColors;
-import Mides;
-import Tipografies;
 import processing.core.PApplet;
 import processing.core.PImage;
-
-
 
 public class GUI {
 
@@ -38,14 +33,14 @@ public class GUI {
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        pantallaActual = PANTALLA.SESSIO;
+        this.pantallaActual = GUI.PANTALLA.SESSIO;
         logo = p5.loadImage("LogoEntrar.jpg");
-        tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );
-        tUsuari2 = new TextField(p5,910, 300, textFieldW, textFieldH );
+        tUsuari1 = new TextField(p5,910, 400, Mides.textFieldW, Mides.textFieldH );
+        tUsuari2 = new TextField(p5,910, 300, Mides.textFieldW, textFieldH );
         pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
         pContraseña1 = new PassField(p5, 910, 450, textFieldW, textFieldH);
         pContraseña2 = new PassField(p5, 910, 600, textFieldW, textFieldH);
-        s1 = new Select(ss1, 600, 400, 400, 100);
+        sCasa1 = new Select(ss1, 600, 400, 400, 100);
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
