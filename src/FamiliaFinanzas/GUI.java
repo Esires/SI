@@ -3,6 +3,8 @@ package FamiliaFinanzas;
 import processing.core.PApplet;
 import processing.core.PImage;
 
+import static FamiliaFinanzas.Mides.*;
+
 public class GUI {
 
     // Enumerat de les Pantalles de l'App
@@ -35,8 +37,8 @@ public class GUI {
         colorsGUI = new PColors(p5);
         this.pantallaActual = GUI.PANTALLA.SESSIO;
         logo = p5.loadImage("LogoEntrar.jpg");
-        tUsuari1 = new TextField(p5,910, 400, Mides.textFieldW, Mides.textFieldH );
-        tUsuari2 = new TextField(p5,910, 300, Mides.textFieldW, textFieldH );
+        tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );
+        tUsuari2 = new TextField(p5,910, 300, textFieldW, textFieldH );
         pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
         pContraseña1 = new PassField(p5, 910, 450, textFieldW, textFieldH);
         pContraseña2 = new PassField(p5, 910, 600, textFieldW, textFieldH);
@@ -97,7 +99,7 @@ public class GUI {
     public void dibuixaPantallaCasa(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         bVolver.display(p5);
-        s1.display(p5);
+        sCasa1.display(p5);
     }
 
     public void dibuixaPantallaOci(PApplet p5){
