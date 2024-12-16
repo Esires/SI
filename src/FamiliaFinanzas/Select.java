@@ -1,5 +1,7 @@
 package FamiliaFinanzas;
 import processing.core.PApplet;
+import processing.core.PFont;
+
 public class Select {
 
     float x, y, w, h;          // Posició i dimensions
@@ -10,6 +12,7 @@ public class Select {
     boolean enabled;           // Abilitat / desabilitat
 
     float lineSpace = 15;      // Espai entre línies
+    PFont fontSelect;
 
     public Select(String[] texts, float x, float y, float w, float h){
 
@@ -23,6 +26,8 @@ public class Select {
         this.collapsed = true;
     }
 
+    public void setFontSelect(PFont fontSelect) {this.fontSelect = fontSelect;
+    }
 
     public  boolean isEnabled(){
         return  this.enabled;
@@ -47,8 +52,9 @@ public class Select {
         p5.fill(0); p5.stroke(0);
         p5.triangle(x + w - 25, y+5, x + w - 15, y + 25, x + w - 5 , y+5);
 
-        p5.fill(0); p5.textSize(14);
-        p5.text(selectedValue, x + 10, y + 20);
+        p5.fill(0); p5.textSize(Mides.midaBotons);
+        if(this.fontSelect!=null) { p5.textFont(this.fontSelect); }
+        p5.text(selectedValue, x + 20, y + 20);
 
         if(!this.collapsed){
 

@@ -1,5 +1,5 @@
 package FamiliaFinanzas;
-import Fonts.Mides;
+import static FamiliaFinanzas.Mides.*;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.core.PImage;

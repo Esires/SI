@@ -92,6 +92,7 @@ public class MainApp extends PApplet {
             }
             if(gui.sCasa1.mouseOverSelect(this)){
                 gui.sCasa1.toggle();
+                gui.sCasa1.update(this);
             }
         }
         else if(gui.pantallaActual== GUI.PANTALLA.ESPORTS){
