@@ -20,6 +20,7 @@ public class GUI {
     TextField tUsuari1, tUsuari2, tCasa;
     PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo;
+    RadioButtonGroup rCasa;
     Select sCasa, sCasa2, sFamilia1, sFamilia2;
     String [] sC1 = {"Electricitat", "Aigua", "Compra", "Roba", "Restaurant/Excursions", "Viatge"};
     String [] sC2 = {"hola", "adeu", "sí"};
@@ -45,6 +46,7 @@ public class GUI {
         sCasa = new Select(sC1, 100, 250, 400, 75);
         sCasa.setFontSelect(fontsGUI.getThirdFont());
         tCasa = new TextField(p5,600, 250, 250, 75);
+        //rCasa = new RadioButtonGroup()
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
