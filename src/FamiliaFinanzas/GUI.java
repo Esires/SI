@@ -23,7 +23,7 @@ public class GUI {
     TextField tUsuari1, tUsuari2;
     PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo;
-    Select s1, s2;
+    Select sCasa1, sCasa2, sFamilia1, sFamilia2;
     String [] ss1 = {"hola", "adeu", "sí"};
     String [] ss2 = {"hola", "adeu", "sí"};
     String [] ss3 = {"hola", "adeu", "sí"};
