@@ -1,12 +1,12 @@
 package FamiliaFinanzas;
 
-import Colors.PColors;
-import Fonts.Mides;
-import Fonts.Tipografies;
+import PColors;
+import Mides;
+import Tipografies;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-import static Pantalles.Mides.*;
+
 
 public class GUI {
 

@@ -1,6 +1,5 @@
 package FamiliaFinanzas;
 
-import Pantalles.Mides;
 import processing.core.PApplet;
 
 public class MainApp extends PApplet {

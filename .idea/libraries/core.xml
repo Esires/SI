@@ -6,9 +6,6 @@
       <root url="jar://$PROJECT_DIR$/../../../Documentos/processing-4.3/core/library/jogl-all.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <NATIVE>
-      <root url="file://$PROJECT_DIR$/../../../Documentos/processing-4.3/core/library/windows-amd64" />
-    </NATIVE>
     <SOURCES />
   </library>
 </component>
