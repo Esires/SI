@@ -78,6 +78,7 @@ public class MainApp extends PApplet {
     public void keyPressed(){
         gui.tUsuari1.keyPressed(key, keyCode);
         gui.tUsuari2.keyPressed(key, keyCode);
+        gui.tCasa.keyPressed(key, keyCode);
         gui.pContraseña.keyPressed(key, keyCode);
         gui.pContraseña1.keyPressed(key, keyCode);
         gui.pContraseña2.keyPressed(key, keyCode);
@@ -90,9 +91,9 @@ public class MainApp extends PApplet {
             if(gui.bVolver.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.INICIAL;
             }
-            if(gui.sCasa1.mouseOverSelect(this)){
-                gui.sCasa1.toggle();
-                gui.sCasa1.update(this);
+            if(gui.sCasa.mouseOverSelect(this)){
+                gui.sCasa.toggle();
+                gui.sCasa.update(this);
             }
         }
         else if(gui.pantallaActual== GUI.PANTALLA.ESPORTS){
@@ -156,6 +157,7 @@ public class MainApp extends PApplet {
         }
         gui.tUsuari1.isPressed(this);
         gui.tUsuari2.isPressed(this);
+        gui.tCasa.isPressed(this);
         gui.pContraseña.isPressed(this);
         gui.pContraseña1.isPressed(this);
         gui.pContraseña2.isPressed(this);
