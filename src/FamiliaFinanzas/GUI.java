@@ -20,7 +20,8 @@ public class GUI {
     TextField tUsuari1, tUsuari2, tCasa;
     PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo;
-    RadioButtonGroup rCasa;
+    RadioButton rBC1, rBC2, rBC3, rBC4, rBC5, rBC6;
+    RadioButtonGroup rBCasa1, rBCasa2;
     Select sCasa, sCasa2, sFamilia1, sFamilia2;
     String [] sC1 = {"Electricitat", "Aigua", "Compra", "Roba", "Restaurant/Excursions", "Viatge"};
     String [] sC2 = {"hola", "adeu", "sí"};
@@ -46,7 +47,14 @@ public class GUI {
         sCasa = new Select(sC1, 100, 250, 400, 75);
         sCasa.setFontSelect(fontsGUI.getThirdFont());
         tCasa = new TextField(p5,600, 250, 250, 75);
-        //rCasa = new RadioButtonGroup()
+        rBC1 = new RadioButton(p5, 180,75,15);
+        rBC2 = new RadioButton(p5, 180,175,15);
+        rBC3 = new RadioButton(p5, 180,275,15);
+        rBC4 = new RadioButton(p5, 180,275,15);
+        rBC5 = new RadioButton(p5, 180,275,15);
+        rBC6 = new RadioButton(p5, 180,275,15);
+        rBCasa1 = new RadioButtonGroup(2);
+        rBCasa2 = new RadioButtonGroup(4);
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
@@ -105,6 +113,7 @@ public class GUI {
         bVolver.display(p5);
         sCasa.display(p5);
         tCasa.display(p5);
+
     }
 
     public void dibuixaPantallaOci(PApplet p5){

@@ -1,15 +1,20 @@
 package FamiliaFinanzas;
 
 import processing.core.PApplet;
+import processing.core.PFont;
 
 public class RadioButton {
 
     // Propietats
     int x, y, r;
 
+
+
+    String texto;
+
     // Colors
     int bgColor, borderColor, checkedColor;
-
+    PFont tipografia;
     boolean checked;
 
     // Constructor
@@ -21,11 +26,19 @@ public class RadioButton {
         this.bgColor = p5.color(255);
         this.borderColor = p5.color(0);
         this.checkedColor = p5.color(180);
+        this.texto="";
+        this.tipografia = p5.createFont("data/SophiaFrancesca.ttf", Mides.midaTextIDesplegables);
     }
+
+
 
     // Getter
     public  boolean isChecked(){
         return  this.checked;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
 
 
@@ -42,6 +55,9 @@ public class RadioButton {
             p5.fill(checkedColor); p5.noStroke();
             p5.ellipse(x, y, 1.5f*r, 1.5f*r);
         }
+
+        p5.fill(0); p5.textFont(tipografia);
+        p5.text(texto, x + 2*r + 5, y);
     }
 
     public void setChecked(boolean b){
