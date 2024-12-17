@@ -22,6 +22,7 @@ public class GUI {
     PImage logo;
     RadioButton rBC1, rBC2, rBC3, rBC4, rBC5, rBC6;
     RadioButtonGroup rBCasa1, rBCasa2;
+    boolean showrBCasa2;
     Select sCasa, sCasa2, sFamilia1, sFamilia2;
     String [] sC1 = {"Electricitat", "Aigua", "Compra", "Roba", "Restaurant/Excursions", "Viatge"};
     String [] sC2 = {"hola", "adeu", "sí"};
@@ -57,6 +58,7 @@ public class GUI {
         rBCasa1.setRadioButtons(rBC1, rBC2);
         rBCasa2 = new RadioButtonGroup(4);
         rBCasa2.setRadioButtons(rBC3, rBC4, rBC5, rBC6);
+        showrBCasa2 = false;
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
@@ -117,6 +119,7 @@ public class GUI {
         sCasa.display(p5);
         tCasa.display(p5);
         rBCasa1.display(p5);
+        if (showrBCasa2 == true){rBCasa2.display(p5);};
 
     }
 

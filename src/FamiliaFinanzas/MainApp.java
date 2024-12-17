@@ -96,6 +96,8 @@ public class MainApp extends PApplet {
                 gui.sCasa.update(this);
             }
             if(gui.rBC2.onMouseOver(this)){
+                gui.rBC2.setChecked(true);
+                gui.showrBCasa2 = true;
                 gui.rBCasa2.display(this);
             }
         }
