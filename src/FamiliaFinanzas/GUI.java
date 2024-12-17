@@ -23,6 +23,7 @@ public class GUI {
     RadioButton rBC1, rBC2, rBC3, rBC4, rBC5, rBC6;
     RadioButtonGroup rBCasa1, rBCasa2;
     boolean showrBCasa2;
+    CheckBox [] cBCasa;
     Select sCasa, sCasa2, sFamilia1, sFamilia2;
     String [] sC1 = {"Electricitat", "Aigua", "Compra", "Roba", "Restaurant/Excursions", "Viatge"};
     String [] sC2 = {"hola", "adeu", "sí"};
