@@ -122,32 +122,44 @@ public class GUI {
         tCasa.display(p5);
         rBCasa1.display(p5);
         if (showrBCasa2 == true){rBCasa2.display(p5);};
+        bAplicar.display(p5);
+        bReset.display(p5);
 
     }
 
     public void dibuixaPantallaOci(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         bVolver.display(p5);
+        bAplicar.display(p5);
+        bReset.display(p5);
     }
 
     public void dibuixaPantallaGrafic(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         bVolver.display(p5);
+        bAplicar.display(p5);
+        bReset.display(p5);
     }
 
     public void dibuixaPantallaEsport(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         bVolver.display(p5);
+        bAplicar.display(p5);
+        bReset.display(p5);
     }
 
     public void dibuixaPantallaIngresos(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         bVolver.display(p5);
+        bAplicar.display(p5);
+        bReset.display(p5);
     }
 
     public void dibuixaPantallaEscola(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         bVolver.display(p5);
+        bAplicar.display(p5);
+        bReset.display(p5);
     }
 
 
