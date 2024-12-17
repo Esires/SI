@@ -48,12 +48,12 @@ public class GUI {
         sCasa = new Select(sC1, 100, 250, 400, 75);
         sCasa.setFontSelect(fontsGUI.getThirdFont());
         tCasa = new TextField(p5,600, 250, 250, 75);
-        rBC1 = new RadioButton(p5, 900,75,15, "Espontani");
-        rBC2 = new RadioButton(p5, 900,175,15, "Regular");
-        rBC3 = new RadioButton(p5, 900,275,15, "Diaria");
-        rBC4 = new RadioButton(p5, 900,375,15, "Setmanal");
-        rBC5 = new RadioButton(p5, 900,475,15, "Mensual");
-        rBC6 = new RadioButton(p5, 900,575,15, "Anual");
+        rBC1 = new RadioButton(p5, 900,250,15, "Espontani");
+        rBC2 = new RadioButton(p5, 900,350,15, "Regular");
+        rBC3 = new RadioButton(p5, 900,450,15, "Diaria");
+        rBC4 = new RadioButton(p5, 900,550,15, "Setmanal");
+        rBC5 = new RadioButton(p5, 900,650,15, "Mensual");
+        rBC6 = new RadioButton(p5, 900,750,15, "Anual");
         rBCasa1 = new RadioButtonGroup(2);
         rBCasa1.setRadioButtons(rBC1, rBC2);
         rBCasa2 = new RadioButtonGroup(4);

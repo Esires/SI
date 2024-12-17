@@ -95,11 +95,18 @@ public class MainApp extends PApplet {
                 gui.sCasa.toggle();
                 gui.sCasa.update(this);
             }
-            if(gui.rBC2.onMouseOver(this)){
-                gui.rBC2.setChecked(true);
+
+            gui.rBCasa1.updateOnClick(this);
+            gui.rBCasa2.updateOnClick(this);
+
+            if(gui.rBCasa1.selectedOption==1){
                 gui.showrBCasa2 = true;
-                gui.rBCasa2.display(this);
             }
+            else {
+                gui.showrBCasa2 = false;
+            }
+
+
         }
         else if(gui.pantallaActual== GUI.PANTALLA.ESPORTS){
             if(gui.bVolver.mouseOverButton(this)){
