@@ -47,12 +47,12 @@ public class GUI {
         sCasa = new Select(sC1, 100, 250, 400, 75);
         sCasa.setFontSelect(fontsGUI.getThirdFont());
         tCasa = new TextField(p5,600, 250, 250, 75);
-        rBC1 = new RadioButton(p5, 180,75,15);
-        rBC2 = new RadioButton(p5, 180,175,15);
-        rBC3 = new RadioButton(p5, 180,275,15);
-        rBC4 = new RadioButton(p5, 180,275,15);
-        rBC5 = new RadioButton(p5, 180,275,15);
-        rBC6 = new RadioButton(p5, 180,275,15);
+        rBC1 = new RadioButton(p5, 180,75,15, "Espontani");
+        rBC2 = new RadioButton(p5, 180,175,15, "Regular");
+        rBC3 = new RadioButton(p5, 180,275,15, "Diaria");
+        rBC4 = new RadioButton(p5, 180,275,15, "Setmanal");
+        rBC5 = new RadioButton(p5, 180,275,15, "Mensual");
+        rBC6 = new RadioButton(p5, 180,275,15, "Anual");
         rBCasa1 = new RadioButtonGroup(2);
         rBCasa2 = new RadioButtonGroup(4);
         // Inicialització de components (botons)

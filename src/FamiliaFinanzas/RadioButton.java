@@ -18,7 +18,7 @@ public class RadioButton {
     boolean checked;
 
     // Constructor
-    public RadioButton(PApplet p5, int x, int y, int r){
+    public RadioButton(PApplet p5, int x, int y, int r, String s){
         this.x = x;
         this.y = y;
         this.r = r;
@@ -26,7 +26,7 @@ public class RadioButton {
         this.bgColor = p5.color(255);
         this.borderColor = p5.color(0);
         this.checkedColor = p5.color(180);
-        this.texto="";
+        this.texto= s;
         this.tipografia = p5.createFont("data/SophiaFrancesca.ttf", Mides.midaTextIDesplegables);
     }
 
