@@ -14,7 +14,7 @@ public class GUI {
     public PANTALLA pantallaActual;
 
     // Components de la Buttons.GUI
-    Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos, bRegistrar, bEntrar, bVolver, bEnregistret;
+    Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos, bRegistrar, bEntrar, bVolver, bEnregistret, bAplicar, bReset;
     Tipografies fontsGUI;
     PColors colorsGUI;
     TextField tUsuari1, tUsuari2, tCasa;
@@ -70,6 +70,8 @@ public class GUI {
         bEntrar = new Botons(p5,"Entrar", 1300,750, 350, 150 );
         bVolver = new Botons(p5, "Volver", 1700, 75, 200, 100);
         bEnregistret = new Botons(p5, "Enregistret",900, 750,350, 150);
+        bAplicar = new Botons(p5,"Aplicar",  500, 900, 350, 200);
+        bReset = new Botons(p5, "Reset", 800, 900, 350, 200);
     }
 
 
