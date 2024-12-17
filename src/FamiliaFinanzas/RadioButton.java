@@ -27,9 +27,8 @@ public class RadioButton {
         this.borderColor = p5.color(0);
         this.checkedColor = p5.color(180);
         this.texto= s;
-        this.tipografia = p5.createFont("data/SophiaFrancesca.ttf", Mides.midaTextIDesplegables);
+        this.tipografia = p5.createFont("data/SophiaFrancesca.ttf", Mides.midaTextIDesplegables+6);
     }
-
 
 
     // Getter
@@ -37,9 +36,7 @@ public class RadioButton {
         return  this.checked;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
+
 
 
     // Dibuixa el CheckBox
@@ -57,7 +54,7 @@ public class RadioButton {
         }
 
         p5.fill(0); p5.textFont(tipografia);
-        p5.text(texto, x + 2*r + 5, y);
+        p5.text(texto, x + 2*r + 40, y+10);
     }
 
     public void setChecked(boolean b){

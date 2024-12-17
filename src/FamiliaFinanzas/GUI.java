@@ -47,14 +47,16 @@ public class GUI {
         sCasa = new Select(sC1, 100, 250, 400, 75);
         sCasa.setFontSelect(fontsGUI.getThirdFont());
         tCasa = new TextField(p5,600, 250, 250, 75);
-        rBC1 = new RadioButton(p5, 180,75,15, "Espontani");
-        rBC2 = new RadioButton(p5, 180,175,15, "Regular");
-        rBC3 = new RadioButton(p5, 180,275,15, "Diaria");
-        rBC4 = new RadioButton(p5, 180,275,15, "Setmanal");
-        rBC5 = new RadioButton(p5, 180,275,15, "Mensual");
-        rBC6 = new RadioButton(p5, 180,275,15, "Anual");
+        rBC1 = new RadioButton(p5, 900,75,15, "Espontani");
+        rBC2 = new RadioButton(p5, 900,175,15, "Regular");
+        rBC3 = new RadioButton(p5, 900,275,15, "Diaria");
+        rBC4 = new RadioButton(p5, 900,375,15, "Setmanal");
+        rBC5 = new RadioButton(p5, 900,475,15, "Mensual");
+        rBC6 = new RadioButton(p5, 900,575,15, "Anual");
         rBCasa1 = new RadioButtonGroup(2);
+        rBCasa1.setRadioButtons(rBC1, rBC2);
         rBCasa2 = new RadioButtonGroup(4);
+        rBCasa2.setRadioButtons(rBC3, rBC4, rBC5, rBC6);
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
@@ -67,6 +69,7 @@ public class GUI {
         bVolver = new Botons(p5, "Volver", 1700, 75, 200, 100);
         bEnregistret = new Botons(p5, "Enregistret",900, 750,350, 150);
     }
+
 
 
 
@@ -113,6 +116,7 @@ public class GUI {
         bVolver.display(p5);
         sCasa.display(p5);
         tCasa.display(p5);
+        rBCasa1.display(p5);
 
     }
 
