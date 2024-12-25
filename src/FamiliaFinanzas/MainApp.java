@@ -105,7 +105,9 @@ public class MainApp extends PApplet {
             else {
                 gui.showrBCasa2 = false;
             }
-
+            gui.cBMembre1.onMouseOver(this);
+            gui.cBMembre2.onMouseOver(this);
+            gui.cBMembre3.onMouseOver(this);
 
         }
         else if(gui.pantallaActual== GUI.PANTALLA.ESPORTS){

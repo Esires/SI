@@ -23,7 +23,7 @@ public class GUI {
     RadioButton rBC1, rBC2, rBC3, rBC4, rBC5, rBC6;
     RadioButtonGroup rBCasa1, rBCasa2;
     boolean showrBCasa2;
-    CheckBox [] cBCasa;
+    CheckBox cBMembre1, cBMembre2, cBMembre3;
     Select sCasa, sCasa2, sFamilia1, sFamilia2;
     String [] sC1 = {"Electricitat", "Aigua", "Compra", "Roba", "Restaurant/Excursions", "Viatge"};
     String [] sC2 = {"hola", "adeu", "sí"};
@@ -60,6 +60,9 @@ public class GUI {
         rBCasa2 = new RadioButtonGroup(4);
         rBCasa2.setRadioButtons(rBC3, rBC4, rBC5, rBC6);
         showrBCasa2 = false;
+        cBMembre1 = new CheckBox(p5, 1200, 250, 25);
+        cBMembre2 = new CheckBox(p5, 1200, 350, 25);
+        cBMembre3 = new CheckBox(p5, 1200, 450, 25);
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
@@ -71,8 +74,8 @@ public class GUI {
         bEntrar = new Botons(p5,"Entrar", 1300,750, 350, 150 );
         bVolver = new Botons(p5, "Volver", 1700, 75, 200, 100);
         bEnregistret = new Botons(p5, "Enregistret",900, 750,350, 150);
-        bAplicar = new Botons(p5,"Aplicar",  500, 900, 350, 200);
-        bReset = new Botons(p5, "Reset", 800, 900, 350, 200);
+        bAplicar = new Botons(p5,"Aplicar",  600, 900, 350, 75);
+        bReset = new Botons(p5, "Reset", 1100, 900, 350, 75);
     }
 
 
@@ -125,7 +128,9 @@ public class GUI {
         if (showrBCasa2 == true){rBCasa2.display(p5);};
         bAplicar.display(p5);
         bReset.display(p5);
-
+        cBMembre1.display(p5);
+        cBMembre2.display(p5);
+        cBMembre3.display(p5);
     }
 
     public void dibuixaPantallaOci(PApplet p5){
