@@ -1,5 +1,6 @@
 package FamiliaFinanzas;
 import processing.core.PApplet;
+import processing.core.PFont;
 
 public class CheckBox {
     // Propietats
@@ -7,11 +8,12 @@ public class CheckBox {
 
     // Colors
     int bgColor, borderColor, checkedColor;
-
+    String texto;
+    PFont tipografia;
     boolean checked;
 
     // Constructor
-    public CheckBox(PApplet p5, int x, int y, int w){
+    public CheckBox(PApplet p5, int x, int y, int w, String s){
         this.x = x;
         this.y = y;
         this.w = w;
@@ -19,6 +21,8 @@ public class CheckBox {
         this.bgColor = p5.color(255);
         this.borderColor = p5.color(0);
         this.checkedColor = p5.color(180);
+        this.texto= s;
+        this.tipografia = p5.createFont("data/SophiaFrancesca.ttf", Mides.midaTextIDesplegables+6);
     }
 
     // Getters
@@ -48,6 +52,8 @@ public class CheckBox {
             p5.line(x, y+w, x + w, y);
         }
         p5.popStyle();
+        p5.fill(0); p5.textFont(tipografia);
+        p5.text(texto, x + 2*w + 40, y+20);
     }
 
     public void setChecked(boolean b){

@@ -60,9 +60,9 @@ public class GUI {
         rBCasa2 = new RadioButtonGroup(4);
         rBCasa2.setRadioButtons(rBC3, rBC4, rBC5, rBC6);
         showrBCasa2 = false;
-        cBMembre1 = new CheckBox(p5, 1200, 250, 25);
-        cBMembre2 = new CheckBox(p5, 1200, 350, 25);
-        cBMembre3 = new CheckBox(p5, 1200, 450, 25);
+        cBMembre1 = new CheckBox(p5, 1300, 250, 25, "membre 1");
+        cBMembre2 = new CheckBox(p5, 1300, 350, 25, "membre 2");
+        cBMembre3 = new CheckBox(p5, 1300, 450, 25, "membre 3");
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
         bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
