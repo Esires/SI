@@ -24,9 +24,9 @@ public class GUI {
     RadioButtonGroup rBCasa1, rBCasa2;
     boolean showrBCasa2;
     CheckBox cBMembre1, cBMembre2, cBMembre3;
-    Select sCasa, sCasa2, sFamilia1, sFamilia2;
-    String [] sC1 = {"Electricitat", "Aigua", "Compra", "Roba", "Restaurant/Excursions", "Viatge"};
-    String [] sC2 = {"hola", "adeu", "sí"};
+    Select sCasa, sEscola, sFamilia1, sFamilia2;
+    String [] sC1 = {"Electricitat", "Aigua", "Compra"};
+    String [] sE = {"Material Escolar", "Viatge d'Estudis", "Repàs"};
     String [] ss3 = {"hola", "adeu", "sí"};
     String [] ss4 = {"hola", "adeu", "sí"};
     String [] ss5 = {"hola", "adeu", "sí"};
@@ -46,15 +46,15 @@ public class GUI {
         pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
         pContraseña1 = new PassField(p5, 910, 450, textFieldW, textFieldH);
         pContraseña2 = new PassField(p5, 910, 600, textFieldW, textFieldH);
-        sCasa = new Select(sC1, 100, 250, 400, 75);
+        sCasa = new Select(sC1, 400, 250, 400, 75);
         sCasa.setFontSelect(fontsGUI.getThirdFont());
-        tCasa = new TextField(p5,600, 250, 250, 75);
-        rBC1 = new RadioButton(p5, 1000,275,15, "Espontani");
-        rBC2 = new RadioButton(p5, 1000,375,15, "Regular");
-        rBC3 = new RadioButton(p5, 1000,475,15, "Diaria");
-        rBC4 = new RadioButton(p5, 1000,575,15, "Setmanal");
-        rBC5 = new RadioButton(p5, 1000,675,15, "Mensual");
-        rBC6 = new RadioButton(p5, 1000,775,15, "Anual");
+        tCasa = new TextField(p5,1100, 250, 250, 75);
+        rBC1 = new RadioButton(p5, 1300,275,15, "Espontani");
+        rBC2 = new RadioButton(p5, 1300,375,15, "Regular");
+        rBC3 = new RadioButton(p5, 1300,475,15, "Diaria");
+        rBC4 = new RadioButton(p5, 1300,575,15, "Setmanal");
+        rBC5 = new RadioButton(p5, 1300,675,15, "Mensual");
+        rBC6 = new RadioButton(p5, 1300,775,15, "Anual");
         rBCasa1 = new RadioButtonGroup(2);
         rBCasa1.setRadioButtons(rBC1, rBC2);
         rBCasa2 = new RadioButtonGroup(4);
@@ -124,13 +124,10 @@ public class GUI {
         bVolver.display(p5);
         sCasa.display(p5);
         tCasa.display(p5);
-        rBCasa1.display(p5);
-        if (showrBCasa2 == true){rBCasa2.display(p5);};
+       // rBCasa1.display(p5);
+        //if (showrBCasa2 == true){rBCasa2.display(p5);};
         bAplicar.display(p5);
         bReset.display(p5);
-        cBMembre1.display(p5);
-        cBMembre2.display(p5);
-        cBMembre3.display(p5);
     }
 
     public void dibuixaPantallaOci(PApplet p5){
@@ -138,6 +135,9 @@ public class GUI {
         bVolver.display(p5);
         bAplicar.display(p5);
         bReset.display(p5);
+        cBMembre1.display(p5);
+        cBMembre2.display(p5);
+        cBMembre3.display(p5);
     }
 
     public void dibuixaPantallaGrafic(PApplet p5){
