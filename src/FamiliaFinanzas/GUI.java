@@ -24,15 +24,15 @@ public class GUI {
     RadioButtonGroup rBCasa1, rBCasa2;
     boolean showrBCasa2;
     CheckBox cBMembre1, cBMembre2, cBMembre3;
-    Select sCasa, sEscola, sFamilia, sFamilia2;
+    Select sCasa, sEscola, sFamilia, sEsport;
     String [] sC = {"Electricitat", "Aigua", "Compra"};
     String [] sE = {"Material Escolar", "Viatge d'Estudis", "Repàs"};
     String [] sF = {"Excursio", "Restaurant", "Viatge"};
-    String [] ss4 = {"hola", "adeu", "sí"};
-    String [] ss5 = {"hola", "adeu", "sí"};
+    String [] sEs = {"D'Equip", "Individual", "Ball"};
+    /*String [] ss5 = {"hola", "adeu", "sí"};
     String [] ss6 = {"hola", "adeu", "sí"};
     String [] ss7 = {"hola", "adeu", "sí"};
-    String [] ss8 = {"hola", "adeu", "sí"};
+    String [] ss8 = {"hola", "adeu", "sí"};*/
 
 
     // Constructor de la Buttons.GUI
@@ -52,6 +52,8 @@ public class GUI {
         sEscola.setFontSelect(fontsGUI.getThirdFont());
         sFamilia = new Select(sF, 400, 250, 400, 75);
         sFamilia.setFontSelect((fontsGUI.getThirdFont()));
+        sEsport = new Select(sEs, 400, 250, 400, 75);
+        sEsport.setFontSelect(fontsGUI.getThirdFont());
         tCasa = new TextField(p5,1100, 250, 250, 75);
         rBC1 = new RadioButton(p5, 1300,275,15, "Espontani");
         rBC2 = new RadioButton(p5, 1300,375,15, "Regular");
@@ -142,6 +144,7 @@ public class GUI {
         cBMembre1.display(p5);
         cBMembre2.display(p5);
         cBMembre3.display(p5);
+        sFamilia.display(p5);
     }
 
     public void dibuixaPantallaGrafic(PApplet p5){
@@ -156,6 +159,7 @@ public class GUI {
         bVolver.display(p5);
         bAplicar.display(p5);
         bReset.display(p5);
+        sEsport.display(p5);
     }
 
     public void dibuixaPantallaIngresos(PApplet p5){
@@ -170,6 +174,7 @@ public class GUI {
         bVolver.display(p5);
         bAplicar.display(p5);
         bReset.display(p5);
+        sEscola.display(p5);
     }
 
 
