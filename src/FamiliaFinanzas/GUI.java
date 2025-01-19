@@ -17,7 +17,7 @@ public class GUI {
     Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos, bRegistrar, bEntrar, bVolver, bEnregistret, bAplicar, bReset;
     Tipografies fontsGUI;
     PColors colorsGUI;
-    TextField tUsuari1, tUsuari2, tCasa;
+    TextField tUsuari1, tUsuari2, tCasa, tEscola, tEsport, tFamilia;
     PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo;
     RadioButton rBC1, rBC2, rBC3, rBC4, rBC5, rBC6;
@@ -50,11 +50,14 @@ public class GUI {
         sCasa.setFontSelect(fontsGUI.getThirdFont());
         sEscola = new Select(sE, 400, 250, 400, 75);
         sEscola.setFontSelect(fontsGUI.getThirdFont());
-        sFamilia = new Select(sF, 400, 250, 400, 75);
+        sFamilia = new Select(sF, 250, 250, 400, 75);
         sFamilia.setFontSelect((fontsGUI.getThirdFont()));
         sEsport = new Select(sEs, 400, 250, 400, 75);
         sEsport.setFontSelect(fontsGUI.getThirdFont());
         tCasa = new TextField(p5,1100, 250, 250, 75);
+        tEscola = new TextField(p5,1100, 250, 250, 75);
+        tEsport = new TextField(p5,1100, 250, 250, 75);
+        tFamilia = new TextField(p5,900, 250, 250, 75);
         rBC1 = new RadioButton(p5, 1300,275,15, "Espontani");
         rBC2 = new RadioButton(p5, 1300,375,15, "Regular");
         rBC3 = new RadioButton(p5, 1300,475,15, "Diaria");
@@ -145,6 +148,7 @@ public class GUI {
         cBMembre2.display(p5);
         cBMembre3.display(p5);
         sFamilia.display(p5);
+        tFamilia.display(p5);
     }
 
     public void dibuixaPantallaGrafic(PApplet p5){
@@ -160,6 +164,7 @@ public class GUI {
         bAplicar.display(p5);
         bReset.display(p5);
         sEsport.display(p5);
+        tEsport.display(p5);
     }
 
     public void dibuixaPantallaIngresos(PApplet p5){
@@ -175,6 +180,7 @@ public class GUI {
         bAplicar.display(p5);
         bReset.display(p5);
         sEscola.display(p5);
+        tEscola.display(p5);
     }
 
 

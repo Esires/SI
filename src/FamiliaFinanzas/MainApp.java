@@ -114,6 +114,11 @@ public class MainApp extends PApplet {
             if(gui.bVolver.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.INICIAL;
             }
+            if(gui.sEsport.mouseOverSelect(this)){
+                gui.sEsport.toggle();
+                gui.sEsport.update(this);
+            }
+
         }
         else if (gui.pantallaActual==GUI.PANTALLA.SESSIO){
             if (gui.bRegistrar.mouseOverButton(this)){
@@ -132,10 +137,18 @@ public class MainApp extends PApplet {
             if(gui.bVolver.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.INICIAL;
             }
+            if(gui.sEscola.mouseOverSelect(this)){
+                gui.sEscola.toggle();
+                gui.sEscola.update(this);
+            }
         }
         else if (gui.pantallaActual== GUI.PANTALLA.OCI){
             if(gui.bVolver.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
+            if(gui.sFamilia.mouseOverSelect(this)){
+                gui.sFamilia.toggle();
+                gui.sFamilia.update(this);
             }
         }
         else if (gui.pantallaActual==GUI.PANTALLA.GRAFICS){
