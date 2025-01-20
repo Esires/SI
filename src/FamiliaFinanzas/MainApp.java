@@ -96,18 +96,6 @@ public class MainApp extends PApplet {
                 gui.sCasa.update(this);
             }
 
-            gui.rBCasa1.updateOnClick(this);
-            gui.rBCasa2.updateOnClick(this);
-
-            if(gui.rBCasa1.selectedOption==1){
-                gui.showrBCasa2 = true;
-            }
-            else {
-                gui.showrBCasa2 = false;
-            }
-            gui.cBMembre1.onMouseOver(this);
-            gui.cBMembre2.onMouseOver(this);
-            gui.cBMembre3.onMouseOver(this);
 
         }
         else if(gui.pantallaActual== GUI.PANTALLA.ESPORTS){
@@ -118,7 +106,15 @@ public class MainApp extends PApplet {
                 gui.sEsport.toggle();
                 gui.sEsport.update(this);
             }
+            gui.rBEsport1.updateOnClick(this);
+            gui.rBEsport2.updateOnClick(this);
 
+            if(gui.rBEsport1.selectedOption==1){
+                gui.showrBCasa2 = true;
+            }
+            else {
+                gui.showrBCasa2 = false;
+            }
         }
         else if (gui.pantallaActual==GUI.PANTALLA.SESSIO){
             if (gui.bRegistrar.mouseOverButton(this)){
@@ -150,6 +146,11 @@ public class MainApp extends PApplet {
                 gui.sFamilia.toggle();
                 gui.sFamilia.update(this);
             }
+
+            gui.tFamilia.mouseOverTextField(this);
+            gui.cBMembre1.onMouseOver(this);
+            gui.cBMembre2.onMouseOver(this);
+            gui.cBMembre3.onMouseOver(this);
         }
         else if (gui.pantallaActual==GUI.PANTALLA.GRAFICS){
             if(gui.bVolver.mouseOverButton(this)){

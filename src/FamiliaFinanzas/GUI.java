@@ -20,8 +20,8 @@ public class GUI {
     TextField tUsuari1, tUsuari2, tCasa, tEscola, tEsport, tFamilia;
     PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo;
-    RadioButton rBC1, rBC2, rBC3, rBC4, rBC5, rBC6;
-    RadioButtonGroup rBCasa1, rBCasa2;
+    RadioButton rBE1, rBE2, rBE3, rBE4, rBE5, rBE6;
+    RadioButtonGroup rBEsport1, rBEsport2;
     boolean showrBCasa2;
     CheckBox cBMembre1, cBMembre2, cBMembre3;
     Select sCasa, sEscola, sFamilia, sEsport;
@@ -56,18 +56,18 @@ public class GUI {
         sEsport.setFontSelect(fontsGUI.getThirdFont());
         tCasa = new TextField(p5,1100, 250, 250, 75);
         tEscola = new TextField(p5,1100, 250, 250, 75);
-        tEsport = new TextField(p5,1100, 250, 250, 75);
+        tEsport = new TextField(p5,950, 250, 250, 75);
         tFamilia = new TextField(p5,900, 250, 250, 75);
-        rBC1 = new RadioButton(p5, 1300,275,15, "Espontani");
-        rBC2 = new RadioButton(p5, 1300,375,15, "Regular");
-        rBC3 = new RadioButton(p5, 1300,475,15, "Diaria");
-        rBC4 = new RadioButton(p5, 1300,575,15, "Setmanal");
-        rBC5 = new RadioButton(p5, 1300,675,15, "Mensual");
-        rBC6 = new RadioButton(p5, 1300,775,15, "Anual");
-        rBCasa1 = new RadioButtonGroup(2);
-        rBCasa1.setRadioButtons(rBC1, rBC2);
-        rBCasa2 = new RadioButtonGroup(4);
-        rBCasa2.setRadioButtons(rBC3, rBC4, rBC5, rBC6);
+        rBE1 = new RadioButton(p5, 1300,275,15, "Espontani");
+        rBE2 = new RadioButton(p5, 1300,375,15, "Regular");
+        rBE3 = new RadioButton(p5, 1300,475,15, "Diaria");
+        rBE4 = new RadioButton(p5, 1300,575,15, "Setmanal");
+        rBE5 = new RadioButton(p5, 1300,675,15, "Mensual");
+        rBE6 = new RadioButton(p5, 1300,775,15, "Anual");
+        rBEsport1 = new RadioButtonGroup(2);
+        rBEsport1.setRadioButtons(rBE1, rBE2);
+        rBEsport2 = new RadioButtonGroup(4);
+        rBEsport2.setRadioButtons(rBE3, rBE4, rBE5, rBE6);
         showrBCasa2 = false;
         cBMembre1 = new CheckBox(p5, 1300, 250, 25, "membre 1");
         cBMembre2 = new CheckBox(p5, 1300, 350, 25, "membre 2");
@@ -133,8 +133,7 @@ public class GUI {
         bVolver.display(p5);
         sCasa.display(p5);
         tCasa.display(p5);
-       // rBCasa1.display(p5);
-        //if (showrBCasa2 == true){rBCasa2.display(p5);};
+
         bAplicar.display(p5);
         bReset.display(p5);
     }
@@ -165,6 +164,8 @@ public class GUI {
         bReset.display(p5);
         sEsport.display(p5);
         tEsport.display(p5);
+        rBEsport1.display(p5);
+        if (showrBCasa2 == true){rBEsport2.display(p5);};
     }
 
     public void dibuixaPantallaIngresos(PApplet p5){
