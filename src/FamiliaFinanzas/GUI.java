@@ -130,6 +130,7 @@ public class GUI {
 
     public void dibuixaPantallaCasa(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
+        p5.background(0);
         bVolver.display(p5);
         sCasa.display(p5);
         tCasa.display(p5);

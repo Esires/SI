@@ -79,6 +79,9 @@ public class MainApp extends PApplet {
         gui.tUsuari1.keyPressed(key, keyCode);
         gui.tUsuari2.keyPressed(key, keyCode);
         gui.tCasa.keyPressed(key, keyCode);
+        gui.tEscola.keyPressed(key, keyCode);
+        gui.tEsport.keyPressed(key, keyCode);
+        gui.tFamilia.keyPressed(key, keyCode);
         gui.pContraseña.keyPressed(key, keyCode);
         gui.pContraseña1.keyPressed(key, keyCode);
         gui.pContraseña2.keyPressed(key, keyCode);
@@ -148,9 +151,15 @@ public class MainApp extends PApplet {
             }
 
             gui.tFamilia.mouseOverTextField(this);
-            gui.cBMembre1.onMouseOver(this);
-            gui.cBMembre2.onMouseOver(this);
-            gui.cBMembre3.onMouseOver(this);
+            if(gui.cBMembre1.onMouseOver(this)){
+                gui.cBMembre1.toggle();
+            }
+            else if(gui.cBMembre2.onMouseOver(this)){
+                gui.cBMembre2.toggle();
+            }
+            else if(gui.cBMembre3.onMouseOver(this)){
+                gui.cBMembre3.toggle();
+            }
         }
         else if (gui.pantallaActual==GUI.PANTALLA.GRAFICS){
             if(gui.bVolver.mouseOverButton(this)){
