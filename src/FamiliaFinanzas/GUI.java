@@ -19,7 +19,7 @@ public class GUI {
     PColors colorsGUI;
     TextField tUsuari1, tUsuari2, tCasa, tEscola, tEsport, tFamilia;
     PassField pContraseña, pContraseña1, pContraseña2;
-    PImage logo;
+    PImage logo, logo2;
     RadioButton rBE1, rBE2, rBE3, rBE4, rBE5, rBE6;
     RadioButtonGroup rBEsport1, rBEsport2;
     boolean showrBCasa2;
@@ -41,6 +41,7 @@ public class GUI {
         colorsGUI = new PColors(p5);
         this.pantallaActual = PANTALLA.INICIAL;
         logo = p5.loadImage("LogoEntrar.jpg");
+        logo2 = p5.loadImage("LogoLlarg.jpg");
         tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );
         tUsuari2 = new TextField(p5,910, 300, textFieldW, textFieldH );
         pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
@@ -104,6 +105,7 @@ public class GUI {
         bFamilia.display(p5);
         bGrafics.display(p5);
         bIngressos.display(p5);
+        dibuixaLogoInici(p5);
     }
 
     public void dibuixaPantallaSessio(PApplet p5){
@@ -191,6 +193,11 @@ public class GUI {
     public void dibuixaLogoEntrar(PApplet p5){
         p5.imageMode(p5.CORNER);
         p5.image(logo, marginH+175, marginV+150, logoWidth, logoHeight);
+    }
+
+    public void dibuixaLogoInici(PApplet p5){
+        p5.imageMode(p5.CORNER);
+        p5.image(logo2, marginH+150, marginV+50, logoWidth+200, logoHeight);
     }
 
     public void dibuixaSideBar(PApplet p5){

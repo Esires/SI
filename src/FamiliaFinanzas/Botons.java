@@ -91,7 +91,7 @@ public class Botons {
         }
         else {
             p5.fill(255);
-            p5.text(textBoto, this.x + this.w/2, this.y/2+ this.h/2+43);
+            p5.text(textBoto, this.x + this.w/2, this.y+ this.h/2+5);
         }
 
 

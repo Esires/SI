@@ -54,10 +54,6 @@ public class MainApp extends PApplet {
             case ESCOLA: gui.dibuixaPantallaEscola(this);
                 break;
         }
-
-        fill(0);
-        text(gui.pantallaActual.toString(), 100, 100);
-
         // Actualitza el cursor
         updateCursor();
     }

@@ -54,6 +54,7 @@ public class Select {
 
         p5.fill(0); p5.textSize(Mides.midaBotons);
         if(this.fontSelect!=null) { p5.textFont(this.fontSelect); }
+        p5.textMode(p5.CORNER);
         p5.text(selectedValue, x + 20, y + 20);
 
         if(!this.collapsed){
