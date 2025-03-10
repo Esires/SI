@@ -23,7 +23,7 @@ public class MainApp extends PApplet {
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
         Mides.sidebarX = width - (Mides.sidebarWidth + 20);
         gui = new GUI(this);// Constructor de la Buttons.GUI
-        db = new DataBase("admin", "12345", "prova");
+        db = new DataBase("admin", "12345", "avaluaciointerna");
         db.connect();
     }
 
