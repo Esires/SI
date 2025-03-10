@@ -159,6 +159,9 @@ public class GUI {
         bAplicar.display(p5);
         bReset.display(p5);
         sGrafic.display(p5);
+        cBMembre1.display(p5);
+        cBMembre2.display(p5);
+        cBMembre3.display(p5);
     }
 
     public void dibuixaPantallaEsport(PApplet p5){

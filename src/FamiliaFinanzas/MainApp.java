@@ -169,6 +169,15 @@ public class MainApp extends PApplet {
                 gui.sGrafic.toggle();
                 gui.sGrafic.update(this);
             }
+            if(gui.cBMembre1.onMouseOver(this)){
+                gui.cBMembre1.toggle();
+            }
+            else if(gui.cBMembre2.onMouseOver(this)){
+                gui.cBMembre2.toggle();
+            }
+            else if(gui.cBMembre3.onMouseOver(this)){
+                gui.cBMembre3.toggle();
+            }
         }
         else if (gui.pantallaActual== GUI.PANTALLA.INGRESOS){
             if(gui.bVolver.mouseOverButton(this)){
