@@ -1,12 +1,9 @@
 <component name="libraryTable">
-  <library name="windows-amd64">
+  <library name="mysql-connector-java-8.0.27">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../mysql-connector-java-8.0.27.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <NATIVE>
-      <root url="file://$PROJECT_DIR$/../../../Documentos/processing-4.3/core/library/windows-amd64" />
-    </NATIVE>
     <SOURCES />
   </library>
 </component>

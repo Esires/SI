@@ -6,6 +6,8 @@ public class MainApp extends PApplet {
 
     GUI gui;
 
+    DataBase db;
+
     public static void main(String[] args) {
         PApplet.main("FamiliaFinanzas.MainApp", args);
     }
@@ -21,6 +23,8 @@ public class MainApp extends PApplet {
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
         Mides.sidebarX = width - (Mides.sidebarWidth + 20);
         gui = new GUI(this);// Constructor de la Buttons.GUI
+        db = new DataBase("admin", "12345", "prova");
+        db.connect();
     }
 
     public void draw(){
@@ -160,6 +164,10 @@ public class MainApp extends PApplet {
         else if (gui.pantallaActual==GUI.PANTALLA.GRAFICS){
             if(gui.bVolver.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
+            if(gui.sGrafic.mouseOverSelect(this)){
+                gui.sGrafic.toggle();
+                gui.sGrafic.update(this);
             }
         }
         else if (gui.pantallaActual== GUI.PANTALLA.INGRESOS){

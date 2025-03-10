@@ -24,16 +24,16 @@ public class GUI {
     RadioButtonGroup rBEsport1, rBEsport2;
     boolean showrBCasa2;
     CheckBox cBMembre1, cBMembre2, cBMembre3;
-    Select sCasa, sEscola, sFamilia, sEsport;
+    Select sCasa, sEscola, sFamilia, sEsport, sGrafic;
     String [] sC = {"Electricitat", "Aigua", "Compra"};
     String [] sE = {"Material Escolar", "Viatge d'Estudis", "Repàs"};
     String [] sF = {"Excursio", "Restaurant", "Viatge"};
     String [] sEs = {"D'Equip", "Individual", "Ball"};
+    String [] sG = {"Semanal", "Mensual", "Semestral", "Anual", "Total"};
     /*String [] ss5 = {"hola", "adeu", "sí"};
     String [] ss6 = {"hola", "adeu", "sí"};
     String [] ss7 = {"hola", "adeu", "sí"};
     String [] ss8 = {"hola", "adeu", "sí"};*/
-
 
     // Constructor de la Buttons.GUI
     public GUI(PApplet p5){
@@ -55,6 +55,8 @@ public class GUI {
         sFamilia.setFontSelect((fontsGUI.getThirdFont()));
         sEsport = new Select(sEs, 400, 250, 400, 75);
         sEsport.setFontSelect(fontsGUI.getThirdFont());
+        sGrafic = new Select(sG,250, 250, 400, 75);
+        sGrafic.setFontSelect((fontsGUI.getThirdFont()));
         tCasa = new TextField(p5,1100, 250, 250, 75);
         tEscola = new TextField(p5,1100, 250, 250, 75);
         tEsport = new TextField(p5,950, 250, 250, 75);
@@ -132,11 +134,9 @@ public class GUI {
 
     public void dibuixaPantallaCasa(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
-        p5.background(0);
         bVolver.display(p5);
         sCasa.display(p5);
         tCasa.display(p5);
-
         bAplicar.display(p5);
         bReset.display(p5);
     }
@@ -158,6 +158,7 @@ public class GUI {
         bVolver.display(p5);
         bAplicar.display(p5);
         bReset.display(p5);
+        sGrafic.display(p5);
     }
 
     public void dibuixaPantallaEsport(PApplet p5){
