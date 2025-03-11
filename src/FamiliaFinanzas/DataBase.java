@@ -31,11 +31,11 @@ public class DataBase {
         }
     }
 
-    public String getInfo(String nColumna, String nTaula, String id){
+    public String getInfo(String nColumna, String nTaula, String id, String nClau){
         try {
             String q = "SELECT" + nColumna +
                     "FROM" + nTaula +
-                    " WHERE ID = '"+id+"' ";
+                    " WHERE" +nClau+ " = '"+id+"' ";
             System.out.println(q);
             ResultSet rs = query.executeQuery(q);
             return rs.getString(nColumna);
