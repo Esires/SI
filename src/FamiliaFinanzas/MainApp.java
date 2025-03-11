@@ -25,6 +25,7 @@ public class MainApp extends PApplet {
         gui = new GUI(this);// Constructor de la Buttons.GUI
         db = new DataBase("admin", "12345", "avaluaciointerna");
         db.connect();
+        db.getInfo("PASSWORD", "usuario", "Aina", "NOMBRE");
     }
 
     public void draw(){

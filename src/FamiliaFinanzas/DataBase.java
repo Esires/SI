@@ -33,17 +33,34 @@ public class DataBase {
 
     public String getInfo(String nColumna, String nTaula, String id, String nClau){
         try {
-            String q = "SELECT" + nColumna +
-                    "FROM" + nTaula +
-                    " WHERE" +nClau+ " = '"+id+"' ";
+            String q = "SELECT " + nColumna +
+                    " FROM " + nTaula +
+                    " WHERE " +nClau+ " = '"+id+"' ";
             System.out.println(q);
             ResultSet rs = query.executeQuery(q);
+            rs.next();
             return rs.getString(nColumna);
         }
         catch(Exception e){
             System.out.println(e);
         }
         return "NO HA FUNCIONAT";
+    }
+
+    public int getNumFilesTaula(String nomTaula){
+        String q = "SELECT COUNT(*) AS num FROM "+ nomTaula;
+        try{
+            ResultSet rs = query.executeQuery(q);
+            rs.next();
+            return rs.getInt("num");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+    public String[] getInfoArray(String nTaula, String nColumna){
+        return null;
     }
 
 }
