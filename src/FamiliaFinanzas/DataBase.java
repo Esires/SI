@@ -31,5 +31,19 @@ public class DataBase {
         }
     }
 
+    public String getInfo(String nColumna, String nTaula, String id){
+        try {
+            String q = "SELECT" + nColumna +
+                    "FROM" + nTaula +
+                    " WHERE ID = '"+id+"' ";
+            System.out.println(q);
+            ResultSet rs = query.executeQuery(q);
+            return rs.getString(nColumna);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return "NO HA FUNCIONAT";
+    }
 
 }
