@@ -63,8 +63,8 @@ public class DataBase {
         int n = getNumFilesTaula(nTaula);
         String[] info = new String[n];
         String q = "SELECT "+ nColumna+
-                   " FROM"+ nTaula+
-                " ORDER BY"+ nColumna + " ASC";
+                   " FROM "+ nTaula+
+                " ORDER BY "+ nColumna + " ASC";
         System.out.println(q);
         try{
             ResultSet rs = query.executeQuery(q);
@@ -76,6 +76,13 @@ public class DataBase {
         }catch(Exception e){
             System.out.println(e);
         }
+        return info;
+    }
+
+    public String [][] getInfoArray2DUsuario(){
+        int nf = getNumFilesTaula("usuario");
+        String[][] info = new String[nf][3];
+        String q = " SELECT * FROM usuario ORDER BY NOM ASC";
         return info;
     }
 

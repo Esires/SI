@@ -26,7 +26,7 @@ public class MainApp extends PApplet {
         db = new DataBase("admin", "12345", "avaluaciointerna");
         db.connect();
         db.getInfo("PASSWORD", "usuario", "Aina", "NOMBRE");
-        String [] infoColumna = db.getInfoArray("usuari", "NOM");
+        String [] infoColumna = db.getInfoArray("usuario", "NOMBRE");
         printArray(infoColumna);
     }
 
