@@ -60,7 +60,18 @@ public class DataBase {
     }
 
     public String[] getInfoArray(String nTaula, String nColumna){
-        return null;
+        int n = getNumFilesTaula(nTaula);
+        String[] info = new String[n];
+        String q = "SELECT "+ nColumna+
+                   " FROM"+ nTaula+
+                " ORDER BY"+ nColumna + " ASC";
+        try{
+            ResultSet rs = query.executeQuery(q);
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return info;
     }
 
 }
