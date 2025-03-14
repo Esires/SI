@@ -27,6 +27,7 @@ public class MainApp extends PApplet {
         db.connect();
         db.getInfo("PASSWORD", "usuario", "Aina", "NOMBRE");
         String [] infoColumna = db.getInfoArray("usuari", "NOM");
+        printArray(infoColumna);
     }
 
     public void draw(){
