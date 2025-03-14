@@ -28,6 +28,15 @@ public class MainApp extends PApplet {
         db.getInfo("PASSWORD", "usuario", "Aina", "NOMBRE");
         String [] infoColumna = db.getInfoArray("usuario", "NOMBRE");
         printArray(infoColumna);
+        String[][] infoTaula = db.getInfoArray2DUsuario();
+        println("TAULA: ");
+        for (int i=0; i<infoTaula.length; i++){
+            print(i+": ");
+            for (int j = 0; j<infoTaula[i].length;j++){
+                System.out.print(infoTaula[i][j]+"\t");
+            }
+            println();
+        }
     }
 
     public void draw(){
