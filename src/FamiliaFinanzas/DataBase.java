@@ -82,7 +82,19 @@ public class DataBase {
     public String [][] getInfoArray2DUsuario(){
         int nf = getNumFilesTaula("usuario");
         String[][] info = new String[nf][3];
-        String q = " SELECT * FROM usuario ORDER BY NOM ASC";
+        String q = " SELECT NOM, PASSWORD, ROL FROM usuario ORDER BY NOM ASC";
+        System.out.println(q);
+        try {
+            ResultSet rs =  query.executeQuery(q);
+                int f = 0;
+                while(rs.next()) {
+                    info[f][0]=rs.getString("NOM");
+                    info[f][0]=rs.getString("PASSWORD");
+                    info[f][0]=rs.getString("ROL");
+                }
+            }catch(Exception e){
+                System.out.println(e);
+            }
         return info;
     }
 
