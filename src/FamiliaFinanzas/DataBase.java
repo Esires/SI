@@ -70,7 +70,7 @@ public class DataBase {
             ResultSet rs = query.executeQuery(q);
             int f=0;
             while(rs.next()){
-                info[f] = rs.getString(0);
+                info[f] = rs.getString(1);
                 f++;
             }
         }catch(Exception e){
