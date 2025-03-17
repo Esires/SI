@@ -40,6 +40,15 @@ public class MainApp extends PApplet {
 
         String[] infoQuery = db.getInfoPareMotiu();
         printArray(infoQuery);
+
+        String[][] info2Taules = db.getInfoGastoMotiuPare();
+        for (int i=0; i<info2Taules.length; i++){
+            print(i+": ");
+            for (int j = 0; j<info2Taules[i].length;j++){
+                System.out.print(info2Taules[i][j]+"\t");
+            }
+            println();
+        }
     }
 
     public void draw(){
