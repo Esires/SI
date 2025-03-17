@@ -130,4 +130,27 @@ public class DataBase {
         }
         return info;
     }
+
+    //Retorna dades de 2 taules relacionades
+    public String [][] getInfoGastoMotiuPare(){
+        String qNF = "SELECT COUNT(*) AS num FROM gasto g, motivo m\n" +
+                "WHERE g.MOTIVO_ID = m.MOTIVO_PADRE";
+        int nf = getNumFilesMatchQuery(qNF);
+        String[][] info = new String[nf][2];
+        String q = "SELECT g.IMPORTE, m.MOTIVO_PADRE FROM gasto g, motivo m\n" +
+                "WHERE g.MOTIVO_ID = m.MOTIVO_PADRE";
+        System.out.println(q);
+        try{
+            ResultSet rs = query.executeQuery(q);
+            int n = 0;
+            while(rs.next()){
+                info[n][0]=rs.getString("g.IMPORTE");
+                info[n][1]=rs.getString("m.MOTIVO_PADRE");
+                n++;
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return info;
+    }
 }
