@@ -153,4 +153,11 @@ public class DataBase {
         }
         return info;
     }
+
+   /* public int getMaxImporte(){
+        String q = "SELECT MAX(IMPORTE) AS maxima\n" +
+                "FROM gasto ";
+
+        return
+    }*/
 }
