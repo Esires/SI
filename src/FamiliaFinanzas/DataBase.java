@@ -98,4 +98,36 @@ public class DataBase {
         return info;
     }
 
+    public int getNumFilesMatchQuery(String q){
+        try{
+            ResultSet rs = query.executeQuery(q);
+            rs.next();
+            return rs.getInt("num");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+    //Retorna el pare d'un motiu
+    public String [] getInfoPareMotiu(){
+        String qNF = "SELECT COUNT(*) AS num FROM motivo WHERE MOTIVO_PADRE IS NULL ";
+        int nf = getNumFilesMatchQuery(qNF);
+        String[] info =new String[nf];
+        String q = " SELECT MOTIVO_PADRE " +
+                   " FROM motivo " +
+                   " WHERE MOTIVO_PADRE IS NULL ";
+        System.out.println(q);
+        try {
+            ResultSet rs = query.executeQuery(q);
+            int n = 0;
+            while (rs.next()){
+                info [n] = rs.getString("MOTIVO_PADRE");
+                n++;
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return info;
+    }
 }

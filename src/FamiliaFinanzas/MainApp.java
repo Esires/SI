@@ -37,6 +37,9 @@ public class MainApp extends PApplet {
             }
             println();
         }
+
+        String[] infoQuery = db.getInfoPareMotiu();
+        printArray(infoQuery);
     }
 
     public void draw(){
