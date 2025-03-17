@@ -114,7 +114,7 @@ public class DataBase {
         String qNF = "SELECT COUNT(*) AS num FROM motivo WHERE MOTIVO_PADRE IS NULL ";
         int nf = getNumFilesMatchQuery(qNF);
         String[] info =new String[nf];
-        String q = " SELECT MOTIVO_PADRE " +
+        String q = " SELECT ID " +
                    " FROM motivo " +
                    " WHERE MOTIVO_PADRE IS NULL ";
         System.out.println(q);
