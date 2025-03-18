@@ -154,10 +154,18 @@ public class DataBase {
         return info;
     }
 
-   /* public int getMaxImporte(){
-        String q = "SELECT MAX(IMPORTE) AS maxima\n" +
-                "FROM gasto ";
-
-        return
-    }*/
+   public int getImporteUsuari(String n) {
+       String q = "SELECT SUM(g.IMPORTE) AS total " +
+               " FROM gasto g, gasto_has_usuario gu, usuario u " +
+               " WHERE g.ID = gu.GASTO_ID AND gu.USUARIO_NOMBRE = u.NOMBRE AND u.NOMBRE = '"+n+"'";
+       System.out.println(q);
+       try{
+           ResultSet rs = query.executeQuery(q);
+           rs.next();
+           return rs.getInt("total");
+       }catch (Exception e){
+           System.out.println(e);
+       }
+       return 0;
+   }
 }

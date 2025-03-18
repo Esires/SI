@@ -49,6 +49,9 @@ public class MainApp extends PApplet {
             }
             println();
         }
+
+        int totalImportUsuari = db.getImporteUsuari("Eduard");
+        System.out.println("TOTAL IMPORT EDUARD: " + totalImportUsuari);
     }
 
     public void draw(){
