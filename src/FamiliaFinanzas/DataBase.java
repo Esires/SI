@@ -168,4 +168,20 @@ public class DataBase {
        }
        return 0;
    }
+
+   // Retorna true si el nom i el password son a la taula
+    public boolean checkLogIn(String n, String p){
+        String q = " SELECT COUNT(*) AS n FROM usuario " +
+                " WHERE NOMBRE = '"+ n +"' AND PASSWORD='" + p+"' ";
+        System.out.println(q);
+        try {
+            ResultSet rs = query.executeQuery(q);
+            rs.next();
+            int nF = rs.getInt("n");
+            return nF==1;
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return false;
+    }
 }
