@@ -24,14 +24,14 @@ public class GUI {
     RadioButtonGroup rBEsport1, rBEsport2;
     boolean showrBCasa2;
     CheckBox cBMembre1, cBMembre2, cBMembre3;
-    Select sCasa, sEscola, sFamilia, sEsport, sGrafic;
+    Select sRegistre, sCasa, sEscola, sFamilia, sEsport, sGrafic;
     String [] sC = {"Electricitat", "Aigua", "Compra"};
     String [] sE = {"Material Escolar", "Viatge d'Estudis", "Repàs"};
     String [] sF = {"Excursio", "Restaurant", "Viatge"};
     String [] sEs = {"D'Equip", "Individual", "Ball"};
     String [] sG = {"Semanal", "Mensual", "Semestral", "Anual", "Total"};
-    /*String [] ss5 = {"hola", "adeu", "sí"};
-    String [] ss6 = {"hola", "adeu", "sí"};
+    String [] sR = {"A", "U"};
+    /*String [] ss6 = {"hola", "adeu", "sí"};
     String [] ss7 = {"hola", "adeu", "sí"};
     String [] ss8 = {"hola", "adeu", "sí"};*/
 
@@ -39,14 +39,16 @@ public class GUI {
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        this.pantallaActual = PANTALLA.INICIAL;
+        this.pantallaActual = PANTALLA.REGISTRAR;
         logo = p5.loadImage("LogoEntrar.jpg");
         logo2 = p5.loadImage("LogoLlarg.jpg");
         tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );
-        tUsuari2 = new TextField(p5,910, 300, textFieldW, textFieldH );
+        tUsuari2 = new TextField(p5,910, 150, textFieldW, textFieldH );
         pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
-        pContraseña1 = new PassField(p5, 910, 450, textFieldW, textFieldH);
-        pContraseña2 = new PassField(p5, 910, 600, textFieldW, textFieldH);
+        pContraseña1 = new PassField(p5, 910, 300, textFieldW, textFieldH);
+        pContraseña2 = new PassField(p5, 910, 450, textFieldW, textFieldH);
+        sRegistre = new Select(sR, 910, 600, 400, 75);
+        sRegistre.setFontSelect(fontsGUI.getThirdFont());
         sCasa = new Select(sC, 400, 250, 400, 75);
         sCasa.setFontSelect(fontsGUI.getThirdFont());
         sEscola = new Select(sE, 400, 250, 400, 75);
@@ -130,6 +132,7 @@ public class GUI {
         tUsuari2.display(p5);
         pContraseña1.display(p5);
         pContraseña2.display(p5);
+        sRegistre.display(p5);
     }
 
     public void dibuixaPantallaCasa(PApplet p5){
