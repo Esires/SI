@@ -1,4 +1,5 @@
 package FamiliaFinanzas;
+import java.security.spec.ECField;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -183,5 +184,42 @@ public class DataBase {
             System.out.println(e);
         }
         return false;
+    }
+
+    //INSERT INTO 'usuario' ('nombre', 'password') VALUES ('Papa', '1975Papa1975')
+    public void insertaUsuario(String n, String p, String r){
+        String q = "INSERT INTO usuario (NOMBRE, PASSWORD, ROL) " +
+                " VALUES ('"+n+"', '"+p+"', '"+r+"')";
+        System.out.println(q);
+        try {
+            query.execute(q);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    //eliminar usuari
+    //"DELETE FROM usuario WHERE `usuario`.`NOMBRE` = 'Papa'"
+    public void deleteUsuario(String n){
+        String q = "DELETE FROM usuario WHERE NOMBRE = '"+n+"'";
+        System.out.println(q);
+        try {
+            query.execute(q);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    //UPDATE `usuario` SET `PASSWORD` = '1978Mama1978' WHERE `usuario`.`NOMBRE` = 'Mama'
+    //Modifica les dades d'un usuari
+    public void updatePassword(String nom, String nova){
+        String q = " UPDATE usuario SET PASSWORD='"+nova+"' , "+
+                " WHERE NOMBRE = '"+nom+"'";
+        System.out.println(q);
+        try {
+            query.execute(q);
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }

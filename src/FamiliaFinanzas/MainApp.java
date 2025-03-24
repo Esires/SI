@@ -52,6 +52,15 @@ public class MainApp extends PApplet {
 
         int totalImportUsuari = db.getImporteUsuari("Eduard");
         System.out.println("TOTAL IMPORT EDUARD: " + totalImportUsuari);
+
+        boolean existeix = db.checkLogIn("Eduard", "2007Eduard2007");
+        System.out.println(existeix);
+
+        db.insertaUsuario("Papa", "1975Papa1975", "U");
+
+        db.deleteUsuario("Papa");
+
+        db.updatePassword("Mama", "1978Mama1978");
     }
 
     public void draw(){
