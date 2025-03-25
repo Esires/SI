@@ -165,7 +165,11 @@ public class MainApp extends PApplet {
                 gui.pantallaActual= GUI.PANTALLA.SESSIO;
             }
             if (gui.bEnregistret.mouseOverButton(this) && (gui.pContraseña1 == gui.pContraseña2)){
-                gui.pantallaActual = GUI.PANTALLA.INICIAL;
+                ;
+            }
+            if(gui.sRegistre.mouseOverSelect(this)){
+                gui.sRegistre.toggle();
+                gui.sRegistre.update(this);
             }
         }
         else if (gui.pantallaActual== GUI.PANTALLA.ESCOLA){
