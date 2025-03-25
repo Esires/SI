@@ -162,7 +162,7 @@ public class MainApp extends PApplet {
             if (gui.bRegistrar.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.REGISTRAR;
             }
-            if(gui.bEntrar.mouseOverButton(this)) && (db.checkLogIn(gui.tUsuari1.text, gui.pContraseña.text)){
+            if(gui.bEntrar.mouseOverButton(this) && db.checkLogIn(gui.tUsuari1.text, gui.pContraseña.text)){
                 gui.pantallaActual = GUI.PANTALLA.INICIAL;
             }
         }

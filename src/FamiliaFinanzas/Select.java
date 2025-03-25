@@ -46,6 +46,7 @@ public class Select {
         p5.stroke(0); p5.strokeWeight(2); p5.fill(255);
         p5.rect(x, y, w, h);
 
+
         p5.fill(100);
         p5.rect(x + w - 30, y, 30, h);
 
@@ -55,6 +56,7 @@ public class Select {
         p5.fill(0); p5.textSize(Mides.midaBotons);
         if(this.fontSelect!=null) { p5.textFont(this.fontSelect); }
         p5.textMode(p5.CORNER);
+        p5.textAlign(p5.LEFT);
         p5.text(selectedValue, x + 20, y + 20);
 
         if(!this.collapsed){
@@ -70,6 +72,7 @@ public class Select {
                 }
 
                 p5.fill(0);
+                p5.textAlign(p5.LEFT);
                 p5.text(texts[i], x + 10, y + h + 25 + (h + lineSpace)*i);
             }
         }

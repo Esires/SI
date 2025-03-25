@@ -221,4 +221,16 @@ public class BaseDeDades {
             System.out.println(e);
         }
     }
+
+    public void insertaGasto(String id, int i, char c, String t, String m, String p){
+        String q = "INSERT INTO gasto (ID, FECHA, IMPORTE, COMPARTIDO, TIPO_ID, MOTIVO_ID, PERIODICITAT) " +
+                " VALUES ('"+id+"', '"+i+"', '"+c+"', '"+t+"', '"+m+"', '"+p+"') ";
+        System.out.println(q);
+        try {
+            query.execute(q);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
 }

@@ -39,7 +39,7 @@ public class GUI {
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        this.pantallaActual = PANTALLA.SESSIO;
+        this.pantallaActual = PANTALLA.CASA;
         logo = p5.loadImage("LogoEntrar.jpg");
         logo2 = p5.loadImage("LogoLlarg.jpg");
         tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );
@@ -79,15 +79,15 @@ public class GUI {
         cBMembre3 = new CheckBox(p5, 1300, 450, 25, "membre 3");
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
-        bEscola = new Botons(p5, "Escola i Extraescolars", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
-        bEsports = new Botons(p5, "Esports", sidebarX+50, sidebarY+550, 200, 200, "BotoEsports.jpg");
-        bFamilia = new Botons(p5, "Familia i Oci", sidebarX+50, sidebarY+800, 200, 200, "BotoFamilia.jpg");
-        bGrafics = new Botons(p5, "Gràfics", 400, 800, 350, 200, "BotoGrafics.jpg");
-        bIngressos = new Botons(p5, "Ingressos", 900, 800, 350, 200, "BotoIngresos.jpg");
+        bEscola = new Botons(p5, "Escuela i Extraescolares", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
+        bEsports = new Botons(p5, "Deportes", sidebarX+50, sidebarY+550, 200, 200, "BotoEsports.jpg");
+        bFamilia = new Botons(p5, "Familia i Ocio", sidebarX+50, sidebarY+800, 200, 200, "BotoFamilia.jpg");
+        bGrafics = new Botons(p5, "Gráficos", 400, 800, 350, 200, "BotoGrafics.jpg");
+        bIngressos = new Botons(p5, "Ingresos", 900, 800, 350, 200, "BotoIngresos.jpg");
         bRegistrar = new Botons(p5, "Registrarse", 900, 750,350, 150);
         bEntrar = new Botons(p5,"Entrar", 1300,750, 350, 150 );
         bVolver = new Botons(p5, "Volver", 1700, 75, 200, 100);
-        bEnregistret = new Botons(p5, "Enregistret",900, 750,350, 150);
+        bEnregistret = new Botons(p5, "Registrate",900, 750,350, 150);
         bAplicar = new Botons(p5,"Aplicar",  600, 900, 350, 75);
         bReset = new Botons(p5, "Reset", 1100, 900, 350, 75);
     }
