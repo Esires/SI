@@ -39,7 +39,7 @@ public class GUI {
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        this.pantallaActual = PANTALLA.CASA;
+        this.pantallaActual = PANTALLA.SESSIO;
         logo = p5.loadImage("LogoEntrar.jpg");
         logo2 = p5.loadImage("LogoLlarg.jpg");
         tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );
@@ -119,9 +119,11 @@ public class GUI {
         bEntrar.display(p5);
         tUsuari1.display(p5);
         pContraseña.display(p5);
+        p5.fill(0);
         p5.textFont(this.fontsGUI.getThirdFont());
         p5.textSize(Mides.midaTitol);
-        p5.text("Usuari", tUsuari1.x+75, tUsuari1.y-50);
+        p5.text("Usuario", tUsuari1.x+100, tUsuari1.y-20);
+        p5.text("Contraseña", pContraseña.x+155, pContraseña.y-20);
     }
 
     public void dibuixaPantallaRegistre(PApplet p5){
