@@ -39,7 +39,7 @@ public class GUI {
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        this.pantallaActual = PANTALLA.REGISTRAR;
+        this.pantallaActual = PANTALLA.SESSIO;
         logo = p5.loadImage("LogoEntrar.jpg");
         logo2 = p5.loadImage("LogoLlarg.jpg");
         tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );

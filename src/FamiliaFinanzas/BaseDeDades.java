@@ -1,10 +1,9 @@
 package FamiliaFinanzas;
-import java.security.spec.ECField;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-public class DataBase {
+public class BaseDeDades {
 
     Connection c;
 
@@ -14,7 +13,7 @@ public class DataBase {
 
     boolean connectat  = false;
 
-    public DataBase( String user, String password, String databaseName) {
+    public BaseDeDades(String user, String password, String databaseName) {
         this.user = user;
         this.password = password;
         this.databaseName = databaseName;

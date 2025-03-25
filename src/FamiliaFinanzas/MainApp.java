@@ -6,7 +6,7 @@ public class MainApp extends PApplet {
 
     GUI gui;
 
-    DataBase db;
+    BaseDeDades db;
 
     public static void main(String[] args) {
         PApplet.main("FamiliaFinanzas.MainApp", args);
@@ -23,8 +23,9 @@ public class MainApp extends PApplet {
         textAlign(CENTER); textSize(18);   // Alineació i mida del text
         Mides.sidebarX = width - (Mides.sidebarWidth + 20);
         gui = new GUI(this);// Constructor de la Buttons.GUI
-        db = new DataBase("admin", "12345", "avaluaciointerna");
+        db = new BaseDeDades("admin", "12345", "avaluaciointerna");
         db.connect();
+        /*
         db.getInfo("PASSWORD", "usuario", "Aina", "NOMBRE");
         String [] infoColumna = db.getInfoArray("usuario", "NOMBRE");
         printArray(infoColumna);
@@ -56,11 +57,13 @@ public class MainApp extends PApplet {
         boolean existeix = db.checkLogIn("Eduard", "2007Eduard2007");
         System.out.println(existeix);
 
-        db.insertaUsuario("Papa", "1975Papa1975", "U");
+        //db.insertaUsuario("Papa", "1975Papa1975", "U");
 
-        db.deleteUsuario("Papa");
+        //db.deleteUsuario("Papa");
 
         db.updatePassword("Mama", "1978Mama1978");
+
+         */
     }
 
     public void draw(){
@@ -159,17 +162,21 @@ public class MainApp extends PApplet {
             if (gui.bRegistrar.mouseOverButton(this)){
                 gui.pantallaActual = GUI.PANTALLA.REGISTRAR;
             }
+            if(gui.bEntrar.mouseOverButton(this)) && (db.checkLogIn(gui.tUsuari1.text, gui.pContraseña.text)){
+                gui.pantallaActual = GUI.PANTALLA.INICIAL;
+            }
         }
         else if (gui.pantallaActual== GUI.PANTALLA.REGISTRAR){
             if (gui.bVolver.mouseOverButton(this)){
                 gui.pantallaActual= GUI.PANTALLA.SESSIO;
             }
-            if (gui.bEnregistret.mouseOverButton(this) && (gui.pContraseña1 == gui.pContraseña2)){
-                ;
-            }
             if(gui.sRegistre.mouseOverSelect(this)){
                 gui.sRegistre.toggle();
                 gui.sRegistre.update(this);
+            }
+            if (gui.bEnregistret.mouseOverButton(this) && (gui.pContraseña1.text.equals(gui.pContraseña2.text))){
+                db.insertaUsuario(gui.tUsuari2.text, gui.pContraseña1.text, gui.sRegistre.selectedValue);
+                gui.pantallaActual = GUI.PANTALLA.INICIAL;
             }
         }
         else if (gui.pantallaActual== GUI.PANTALLA.ESCOLA){
