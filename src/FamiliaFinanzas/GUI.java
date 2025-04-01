@@ -17,12 +17,12 @@ public class GUI {
     Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos, bRegistrar, bEntrar, bVolver, bEnregistret, bAplicar, bReset;
     Tipografies fontsGUI;
     PColors colorsGUI;
-    TextField tUsuari1, tUsuari2, tCasa, tEscola, tEsport, tFamilia;
+    TextField tUsuari1, tUsuari2, tCasa, tEscola, tEsport, tFamilia, tID;
     PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo, logo2;
-    RadioButton rBE1, rBE2, rBE3, rBE4, rBE5, rBE6;
-    RadioButtonGroup rBEsport1, rBEsport2;
-    boolean showrBCasa2;
+    RadioButton rBE1, rBE2, rBE3, rBE4, rBE5, rBE6, rBG1, rBG2, rBG3, rBG4, rBG5, rBG6, rBG7, rBG8, rBG9, rBG10, rBG11, rBG12, rBG13, rBG14, rBG15, rBG16;
+    RadioButtonGroup rBEsport1, rBEsport2, rBGrafic1, rBGrafic2, rBGrafic3, rBGrafic4, rBGrafic5;
+    boolean showrBEsport2, showrBGrafic2, showrBGrafic3, showrBGrafic4, showrBGrafic5;
     CheckBox cBMembre1, cBMembre2, cBMembre3;
     Select sRegistre, sCasa, sEscola, sFamilia, sEsport, sGrafic;
     String [] sC = {"Electricitat", "Aigua", "Compra"};
@@ -39,17 +39,18 @@ public class GUI {
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
-        this.pantallaActual = PANTALLA.SESSIO;
+        this.pantallaActual = PANTALLA.CASA;
         logo = p5.loadImage("LogoEntrar.jpg");
         logo2 = p5.loadImage("LogoLlarg.jpg");
         tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );
         tUsuari2 = new TextField(p5,910, 150, textFieldW, textFieldH );
+        tID = new TextField(p5, 150, 350, textFieldW, textFieldH);
         pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
-        pContraseña1 = new PassField(p5, 910, 300, textFieldW, textFieldH);
-        pContraseña2 = new PassField(p5, 910, 450, textFieldW, textFieldH);
-        sRegistre = new Select(sR, 910, 600, 400, 75);
+        pContraseña1 = new PassField(p5, 910, 350, textFieldW, textFieldH);
+        pContraseña2 = new PassField(p5, 910, 550, textFieldW, textFieldH);
+        sRegistre = new Select(sR, 910, 750, 400, 75);
         sRegistre.setFontSelect(fontsGUI.getThirdFont());
-        sCasa = new Select(sC, 400, 250, 400, 75);
+        sCasa = new Select(sC, 900, 350, 400, 75);
         sCasa.setFontSelect(fontsGUI.getThirdFont());
         sEscola = new Select(sE, 400, 250, 400, 75);
         sEscola.setFontSelect(fontsGUI.getThirdFont());
@@ -57,12 +58,12 @@ public class GUI {
         sFamilia.setFontSelect((fontsGUI.getThirdFont()));
         sEsport = new Select(sEs, 400, 250, 400, 75);
         sEsport.setFontSelect(fontsGUI.getThirdFont());
-        sGrafic = new Select(sG,250, 250, 400, 75);
+        sGrafic = new Select(sG,100, 250, 400, 75);
         sGrafic.setFontSelect((fontsGUI.getThirdFont()));
-        tCasa = new TextField(p5,1100, 250, 250, 75);
+        tCasa = new TextField(p5,1400, 350, 250, 75);
         tEscola = new TextField(p5,1100, 250, 250, 75);
         tEsport = new TextField(p5,950, 250, 250, 75);
-        tFamilia = new TextField(p5,900, 250, 250, 75);
+        tFamilia = new TextField(p5,850, 250, 250, 75);
         rBE1 = new RadioButton(p5, 1300,275,15, "Espontani");
         rBE2 = new RadioButton(p5, 1300,375,15, "Regular");
         rBE3 = new RadioButton(p5, 1300,475,15, "Diaria");
@@ -73,10 +74,40 @@ public class GUI {
         rBEsport1.setRadioButtons(rBE1, rBE2);
         rBEsport2 = new RadioButtonGroup(4);
         rBEsport2.setRadioButtons(rBE3, rBE4, rBE5, rBE6);
-        showrBCasa2 = false;
-        cBMembre1 = new CheckBox(p5, 1300, 250, 25, "membre 1");
-        cBMembre2 = new CheckBox(p5, 1300, 350, 25, "membre 2");
-        cBMembre3 = new CheckBox(p5, 1300, 450, 25, "membre 3");
+        showrBEsport2 = false;
+        rBG1 = new RadioButton(p5, 600, 275, 15, "Casa");
+        rBG2 = new RadioButton(p5, 600, 375, 15, "Escuela y Extraescolares");
+        rBG3 = new RadioButton(p5, 600, 475, 15, "Deportes");
+        rBG4 = new RadioButton(p5, 600, 575, 15, "Ocio y Familia");
+        rBG5 = new RadioButton(p5, 1050, 275, 15, "Electricidad");
+        rBG6 = new RadioButton(p5, 1050, 375, 15, "Agua");
+        rBG7 = new RadioButton(p5, 1050, 475, 15, "Compra");
+        rBG8 = new RadioButton(p5, 1050, 275, 15, "Material escolar");
+        rBG9 = new RadioButton(p5, 1050, 375, 15, "Viage de estudios");
+        rBG10 = new RadioButton(p5, 1050, 475, 15, "Repaso");
+        rBG11 = new RadioButton(p5, 1050, 275, 15, "De equipo");
+        rBG12 = new RadioButton(p5, 1050, 375, 15, "Individual");
+        rBG13 = new RadioButton(p5, 1050, 475, 15, "Baile");
+        rBG14 = new RadioButton(p5, 1050, 275, 15, "Excursión");
+        rBG15 = new RadioButton(p5, 1050, 375, 15, "Restaurante");
+        rBG16 = new RadioButton(p5, 1050, 475, 15, "Viaje");
+        rBGrafic1 = new RadioButtonGroup(4);
+        rBGrafic1.setRadioButtons(rBG1, rBG2, rBG3, rBG4);
+        rBGrafic2 = new RadioButtonGroup(3);
+        rBGrafic2.setRadioButtons(rBG5, rBG6, rBG7);
+        showrBGrafic2 = false;
+        rBGrafic3 = new RadioButtonGroup(3);
+        rBGrafic3.setRadioButtons(rBG8, rBG9, rBG10);
+        showrBGrafic3 = false;
+        rBGrafic4 = new RadioButtonGroup(3);
+        rBGrafic4.setRadioButtons(rBG11, rBG12, rBG13);
+        showrBGrafic4 = false;
+        rBGrafic5 = new RadioButtonGroup(3);
+        rBGrafic5.setRadioButtons(rBG14, rBG15, rBG16);
+        showrBGrafic5 = false;
+        cBMembre1 = new CheckBox(p5, 1450, 250, 25, "membre 1");
+        cBMembre2 = new CheckBox(p5, 1450, 350, 25, "membre 2");
+        cBMembre3 = new CheckBox(p5, 1450, 450, 25, "membre 3");
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
         bEscola = new Botons(p5, "Escuela i Extraescolares", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
@@ -87,7 +118,7 @@ public class GUI {
         bRegistrar = new Botons(p5, "Registrarse", 900, 750,350, 150);
         bEntrar = new Botons(p5,"Entrar", 1300,750, 350, 150 );
         bVolver = new Botons(p5, "Volver", 1700, 75, 200, 100);
-        bEnregistret = new Botons(p5, "Registrate",900, 750,350, 150);
+        bEnregistret = new Botons(p5, "Registrate",910, 850,350, 150);
         bAplicar = new Botons(p5,"Aplicar",  600, 900, 350, 75);
         bReset = new Botons(p5, "Reset", 1100, 900, 350, 75);
     }
@@ -123,7 +154,8 @@ public class GUI {
         p5.textFont(this.fontsGUI.getThirdFont());
         p5.textSize(Mides.midaTitol);
         p5.text("Usuario", tUsuari1.x+100, tUsuari1.y-20);
-        p5.text("Contraseña", pContraseña.x+155, pContraseña.y-20);
+        p5.text("Contraseña", pContraseña.x+135, pContraseña.y-20);
+
     }
 
     public void dibuixaPantallaRegistre(PApplet p5){
@@ -135,6 +167,13 @@ public class GUI {
         pContraseña1.display(p5);
         pContraseña2.display(p5);
         sRegistre.display(p5);
+        p5.fill(0);
+        p5.textFont(this.fontsGUI.getThirdFont());
+        p5.textSize(Mides.midaTitol);
+        p5.text("Usuario", tUsuari2.x+100, tUsuari2.y-20);
+        p5.text("Contraseña", pContraseña1.x+135, pContraseña1.y-20);
+        p5.text("Repite la contraseña", pContraseña2.x+235, pContraseña2.y-20);
+        p5.text("Elige tu rol", sRegistre.x+125, sRegistre.y-20);
     }
 
     public void dibuixaPantallaCasa(PApplet p5){
@@ -144,6 +183,13 @@ public class GUI {
         tCasa.display(p5);
         bAplicar.display(p5);
         bReset.display(p5);
+        tID.display(p5);
+        p5.fill(0);
+        p5.textFont(this.fontsGUI.getThirdFont());
+        p5.textSize(midaTitol);
+        p5.text("Identificador", tID.x+155, tID.y-20);
+        p5.text("Motivo", sCasa.x+95, tID.y-20);
+        p5.text("Importe", tCasa.x+95, tID.y-20);
     }
 
     public void dibuixaPantallaOci(PApplet p5){
@@ -167,6 +213,11 @@ public class GUI {
         cBMembre1.display(p5);
         cBMembre2.display(p5);
         cBMembre3.display(p5);
+        rBGrafic1.display(p5);
+        if (showrBGrafic2 == true){rBGrafic2.display(p5);};
+        if (showrBGrafic3 == true){rBGrafic3.display(p5);};
+        if (showrBGrafic4 == true){rBGrafic4.display(p5);};
+        if (showrBGrafic5 == true){rBGrafic5.display(p5);};
     }
 
     public void dibuixaPantallaEsport(PApplet p5){
@@ -177,7 +228,7 @@ public class GUI {
         sEsport.display(p5);
         tEsport.display(p5);
         rBEsport1.display(p5);
-        if (showrBCasa2 == true){rBEsport2.display(p5);};
+        if (showrBEsport2 == true){rBEsport2.display(p5);};
     }
 
     public void dibuixaPantallaIngresos(PApplet p5){

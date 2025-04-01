@@ -1,6 +1,7 @@
 package FamiliaFinanzas;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 import processing.core.PFont;
 
 public class RadioButton {
@@ -54,7 +55,10 @@ public class RadioButton {
         }
 
         p5.fill(0); p5.textFont(tipografia);
+        p5.textAlign(p5.LEFT);
         p5.text(texto, x + 2*r + 40, y+10);
+
+        p5.popStyle();
     }
 
     public void setChecked(boolean b){

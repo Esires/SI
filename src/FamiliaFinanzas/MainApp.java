@@ -124,6 +124,7 @@ public class MainApp extends PApplet {
         gui.pContraseña.keyPressed(key, keyCode);
         gui.pContraseña1.keyPressed(key, keyCode);
         gui.pContraseña2.keyPressed(key, keyCode);
+        gui.tID.keyPressed(key, keyCode);
     }
 
     // ******************* MOUSE interaction ***************************** //
@@ -137,8 +138,6 @@ public class MainApp extends PApplet {
                 gui.sCasa.toggle();
                 gui.sCasa.update(this);
             }
-
-
         }
         else if(gui.pantallaActual== GUI.PANTALLA.ESPORTS){
             if(gui.bVolver.mouseOverButton(this)){
@@ -152,10 +151,10 @@ public class MainApp extends PApplet {
             gui.rBEsport2.updateOnClick(this);
 
             if(gui.rBEsport1.selectedOption==1){
-                gui.showrBCasa2 = true;
+                gui.showrBEsport2 = true;
             }
             else {
-                gui.showrBCasa2 = false;
+                gui.showrBEsport2 = false;
             }
         }
         else if (gui.pantallaActual==GUI.PANTALLA.SESSIO){
@@ -225,6 +224,38 @@ public class MainApp extends PApplet {
             else if(gui.cBMembre3.onMouseOver(this)){
                 gui.cBMembre3.toggle();
             }
+            gui.rBGrafic1.updateOnClick(this);
+            gui.rBGrafic2.updateOnClick(this);
+            gui.rBGrafic3.updateOnClick(this);
+            gui.rBGrafic4.updateOnClick(this);
+            gui.rBGrafic5.updateOnClick(this);
+            if(gui.rBGrafic1.selectedOption==0){
+                gui.showrBGrafic2 = true;
+                gui.showrBGrafic3 = false;
+                gui.showrBGrafic4 = false;
+                gui.showrBGrafic5 = false;
+            }else if(gui.rBGrafic1.selectedOption==1){
+                gui.showrBGrafic3 = true;
+                gui.showrBGrafic2 = false;
+                gui.showrBGrafic4 = false;
+                gui.showrBGrafic5 = false;
+            }else if(gui.rBGrafic1.selectedOption==2){
+                gui.showrBGrafic4 = true;
+                gui.showrBGrafic3 = false;
+                gui.showrBGrafic2 = false;
+                gui.showrBGrafic5 = false;
+            }else if(gui.rBGrafic1.selectedOption==3){
+                gui.showrBGrafic5 = true;
+                gui.showrBGrafic2 = false;
+                gui.showrBGrafic3 = false;
+                gui.showrBGrafic4 = false;
+            }
+            else {
+                gui.showrBGrafic2 = false;
+                gui.showrBGrafic3 = false;
+                gui.showrBGrafic4 = false;
+                gui.showrBGrafic5 = false;
+            }
         }
         else if (gui.pantallaActual== GUI.PANTALLA.INGRESOS){
             if(gui.bVolver.mouseOverButton(this)){
@@ -258,6 +289,7 @@ public class MainApp extends PApplet {
         gui.pContraseña.isPressed(this);
         gui.pContraseña1.isPressed(this);
         gui.pContraseña2.isPressed(this);
+        gui.tID.isPressed(this);
     }
 
     /*public void mouseDragged(){
