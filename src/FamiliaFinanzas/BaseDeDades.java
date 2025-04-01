@@ -222,9 +222,9 @@ public class BaseDeDades {
         }
     }
 
-    public void insertaGastoCasa(String id, int i, char c, String t, String m, String p){
-        String q = "INSERT INTO gasto (ID, FECHA, IMPORTE, COMPARTIDO, TIPO_ID, MOTIVO_ID, PERIODICITAT) " +
-                " VALUES ('"+id+"', '"+i+"', '"+c+"', '"+t+"', '"+m+"', '"+p+"') ";
+    public void insertaGastoCasa(String id, float i, char c, String t, String m, String p){
+        String q = "INSERT INTO gasto (ID, IMPORTE, COMPARTIDO, TIPO_ID, MOTIVO_ID, PERIODICITAT) " +
+                " VALUES ('"+id+"', '"+i+"', 'S', '"+c+"', '"+m+"', '"+p+"') ";
         System.out.println(q);
         try {
             query.execute(q);
