@@ -109,6 +109,8 @@ public class BaseDeDades {
         return 0;
     }
 
+
+
     //Retorna el pare d'un motiu
     public String [] getInfoPareMotiu(){
         String qNF = "SELECT COUNT(*) AS num FROM motivo WHERE MOTIVO_PADRE IS NULL ";
@@ -222,9 +224,20 @@ public class BaseDeDades {
         }
     }
 
-    public void insertaGastoCasa(String id, float i, char c, String t, String m, String p){
-        String q = "INSERT INTO gasto (ID, IMPORTE, COMPARTIDO, TIPO_ID, MOTIVO_ID, PERIODICITAT) " +
-                " VALUES ('"+id+"', '"+i+"', 'S', '"+c+"', '"+m+"', '"+p+"') ";
+    public void insertaGastoCasa(String id, float i, String m, String c){
+        String q = "INSERT INTO gasto (ID, IMPORTE, COMPARTIDO, TIPO_ID, MOTIVO_ID, PERIODICIDAD_ID) " +
+                " VALUES ('"+id+"', '"+i+"', '"+c+"', 'Esporádico', '"+m+"', '') ";
+        System.out.println(q);
+        try {
+            query.execute(q);
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void insertaGastoEscola(String id, float i, String m){
+        String q = "INSERT INTO gasto (ID, IMPORTE, COMPARTIDO, TIPO_ID, MOTIVO_ID, PERIODICIDAD_ID) " +
+                " VALUES ('"+id+"', '"+i+"', 'S', 'Esporádico', '"+m+"', '') ";
         System.out.println(q);
         try {
             query.execute(q);

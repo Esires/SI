@@ -138,6 +138,10 @@ public class MainApp extends PApplet {
                 gui.sCasa.toggle();
                 gui.sCasa.update(this);
             }
+            gui.rBCasa.updateOnClick(this);
+            if (gui.bAplicar.mouseOverButton(this)){
+                db.insertaGastoCasa(gui.tID.text, Float.valueOf(gui.tCasa.text), gui.sCasa.selectedValue, gui.rBCasa.getSelectedText());
+            }
         }
         else if(gui.pantallaActual== GUI.PANTALLA.ESPORTS){
             if(gui.bVolver.mouseOverButton(this)){
@@ -195,7 +199,6 @@ public class MainApp extends PApplet {
                 gui.sFamilia.toggle();
                 gui.sFamilia.update(this);
             }
-
             gui.tFamilia.mouseOverTextField(this);
             if(gui.cBMembre1.onMouseOver(this)){
                 gui.cBMembre1.toggle();
@@ -286,6 +289,9 @@ public class MainApp extends PApplet {
         gui.tUsuari1.isPressed(this);
         gui.tUsuari2.isPressed(this);
         gui.tCasa.isPressed(this);
+        gui.tFamilia.isPressed(this);
+        gui.tEsport.isPressed(this);
+        gui.tEscola.isPressed(this);
         gui.pContraseña.isPressed(this);
         gui.pContraseña1.isPressed(this);
         gui.pContraseña2.isPressed(this);

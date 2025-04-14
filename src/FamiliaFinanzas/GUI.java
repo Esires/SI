@@ -1,3 +1,9 @@
+/**
+ * Clase que representa la interfaz gráfica de usuario (GUI) de la aplicación FamiliaFinanzas.
+ *
+ * <p>Esta clase gestiona todas las pantallas, componentes visuales y su interacción en la aplicación.
+ * Proporciona métodos para dibujar las diferentes pantallas y manejar los elementos de la interfaz.</p>
+ */
 package FamiliaFinanzas;
 
 import processing.core.PApplet;
@@ -7,21 +13,26 @@ import static FamiliaFinanzas.Mides.*;
 
 public class GUI {
 
-    // Enumerat de les Pantalles de l'App
+    /**
+     * Enumerado que representa las diferentes pantallas disponibles en la aplicación.
+     */
     public enum PANTALLA {INICIAL, SESSIO, REGISTRAR, CASA, ESPORTS, GRAFICS, INGRESOS, OCI, ESCOLA};
 
-    // Pantalla Actual
+    /**
+     * Pantalla actualmente visible en la aplicación.
+     */
     public PANTALLA pantallaActual;
 
-    // Components de la Buttons.GUI
+    // Componentes de la GUI
     Botons bCasa, bEscola, bEsports, bFamilia, bGrafics, bIngressos, bRegistrar, bEntrar, bVolver, bEnregistret, bAplicar, bReset;
     Tipografies fontsGUI;
     PColors colorsGUI;
     TextField tUsuari1, tUsuari2, tCasa, tEscola, tEsport, tFamilia, tID;
     PassField pContraseña, pContraseña1, pContraseña2;
     PImage logo, logo2;
-    RadioButton rBE1, rBE2, rBE3, rBE4, rBE5, rBE6, rBG1, rBG2, rBG3, rBG4, rBG5, rBG6, rBG7, rBG8, rBG9, rBG10, rBG11, rBG12, rBG13, rBG14, rBG15, rBG16;
-    RadioButtonGroup rBEsport1, rBEsport2, rBGrafic1, rBGrafic2, rBGrafic3, rBGrafic4, rBGrafic5;
+    RadioButton rBE1, rBE2, rBE3, rBE4, rBE5, rBE6, rBG1, rBG2, rBG3, rBG4, rBG5, rBG6, rBG7, rBG8, rBG9, rBG10, rBG11, rBG12,
+            rBG13, rBG14, rBG15, rBG16, rB1, rB2;
+    RadioButtonGroup rBEsport1, rBEsport2, rBGrafic1, rBGrafic2, rBGrafic3, rBGrafic4, rBGrafic5, rBCasa;
     boolean showrBEsport2, showrBGrafic2, showrBGrafic3, showrBGrafic4, showrBGrafic5;
     CheckBox cBMembre1, cBMembre2, cBMembre3;
     Select sRegistre, sCasa, sEscola, sFamilia, sEsport, sGrafic;
@@ -31,11 +42,21 @@ public class GUI {
     String [] sEs = {"D'Equip", "Individual", "Ball"};
     String [] sG = {"Semanal", "Mensual", "Semestral", "Anual", "Total"};
     String [] sR = {"A", "U"};
-    /*String [] ss6 = {"hola", "adeu", "sí"};
-    String [] ss7 = {"hola", "adeu", "sí"};
-    String [] ss8 = {"hola", "adeu", "sí"};*/
 
-    // Constructor de la Buttons.GUI
+
+    /**
+     * Constructor de la clase GUI.
+     *
+     * @param p5 Objeto PApplet de Processing que permite el dibujo y la interacción
+     *
+     * <p>Inicializa todos los componentes de la interfaz:
+     * - Fuentes y colores
+     * - Campos de texto y contraseña
+     * - Selectores desplegables
+     * - Botones de radio y grupos de botones de radio
+     * - Botones de acción
+     * - Imágenes del logo</p>
+     */
     public GUI(PApplet p5){
         fontsGUI = new Tipografies(p5);
         colorsGUI = new PColors(p5);
@@ -44,13 +65,13 @@ public class GUI {
         logo2 = p5.loadImage("LogoLlarg.jpg");
         tUsuari1 = new TextField(p5,910, 400, textFieldW, textFieldH );
         tUsuari2 = new TextField(p5,910, 150, textFieldW, textFieldH );
-        tID = new TextField(p5, 150, 350, textFieldW, textFieldH);
+        tID = new TextField(p5, 70, 350, textFieldW, textFieldH);
         pContraseña = new PassField(p5, 910, 600, textFieldW, textFieldH);
         pContraseña1 = new PassField(p5, 910, 350, textFieldW, textFieldH);
         pContraseña2 = new PassField(p5, 910, 550, textFieldW, textFieldH);
         sRegistre = new Select(sR, 910, 750, 400, 75);
         sRegistre.setFontSelect(fontsGUI.getThirdFont());
-        sCasa = new Select(sC, 900, 350, 400, 75);
+        sCasa = new Select(sC, 750, 350, 400, 75);
         sCasa.setFontSelect(fontsGUI.getThirdFont());
         sEscola = new Select(sE, 400, 250, 400, 75);
         sEscola.setFontSelect(fontsGUI.getThirdFont());
@@ -60,10 +81,14 @@ public class GUI {
         sEsport.setFontSelect(fontsGUI.getThirdFont());
         sGrafic = new Select(sG,100, 250, 400, 75);
         sGrafic.setFontSelect((fontsGUI.getThirdFont()));
-        tCasa = new TextField(p5,1400, 350, 250, 75);
+        tCasa = new TextField(p5,1240, 350, 250, 75);
         tEscola = new TextField(p5,1100, 250, 250, 75);
         tEsport = new TextField(p5,950, 250, 250, 75);
         tFamilia = new TextField(p5,850, 250, 250, 75);
+        rB1 = new RadioButton(p5, 1570, 375, 15, "Sí");
+        rB2 = new RadioButton(p5, 1570, 475, 15, "No");
+        rBCasa = new RadioButtonGroup(2);
+        rBCasa.setRadioButtons(rB1, rB2);
         rBE1 = new RadioButton(p5, 1300,275,15, "Espontani");
         rBE2 = new RadioButton(p5, 1300,375,15, "Regular");
         rBE3 = new RadioButton(p5, 1300,475,15, "Diaria");
@@ -105,9 +130,6 @@ public class GUI {
         rBGrafic5 = new RadioButtonGroup(3);
         rBGrafic5.setRadioButtons(rBG14, rBG15, rBG16);
         showrBGrafic5 = false;
-        cBMembre1 = new CheckBox(p5, 1450, 250, 25, "membre 1");
-        cBMembre2 = new CheckBox(p5, 1450, 350, 25, "membre 2");
-        cBMembre3 = new CheckBox(p5, 1450, 450, 25, "membre 3");
         // Inicialització de components (botons)
         bCasa = new Botons(p5, "Casa", sidebarX+50, sidebarY+50, 200, 200, "BotoCasa.jpg");
         bEscola = new Botons(p5, "Escuela i Extraescolares", sidebarX+50, sidebarY+300, 200, 200, "BotoEscola.jpg");
@@ -123,11 +145,19 @@ public class GUI {
         bReset = new Botons(p5, "Reset", 1100, 900, 350, 75);
     }
 
+    // MÉTODOS PARA DIBUJAR PANTALLAS
 
-
-
-
-    // PANTALLES DE LA Buttons.GUI
+    /**
+     * Dibuja la pantalla inicial de la aplicación.
+     *
+     * @param p5 Objeto PApplet de Processing para el dibujo
+     *
+     * <p>Este método:
+     * 1. Establece el color de fondo
+     * 2. Dibuja la barra lateral
+     * 3. Muestra los botones principales
+     * 4. Muestra el logo principal</p>
+     */
 
     public void dibuixaPantallaInicial(PApplet p5){
 
@@ -139,9 +169,20 @@ public class GUI {
         bEsports.display(p5);
         bFamilia.display(p5);
         bGrafics.display(p5);
-        bIngressos.display(p5);
+        //bIngressos.display(p5);
         dibuixaLogoInici(p5);
     }
+
+    /**
+     * Dibuja la pantalla de inicio de sesión.
+     *
+     * @param p5 Objeto PApplet de Processing para el dibujo
+     *
+     * <p>Este método muestra:
+     * - Logo de entrada
+     * - Campos para usuario y contraseña
+     * - Botones para registrar o entrar</p>
+     */
 
     public void dibuixaPantallaSessio(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
@@ -157,6 +198,17 @@ public class GUI {
         p5.text("Contraseña", pContraseña.x+135, pContraseña.y-20);
 
     }
+
+    /**
+     * Dibuja la pantalla de registro de nuevos usuarios.
+     *
+     * @param p5 Objeto PApplet de Processing para el dibujo
+     *
+     * <p>Este método muestra:
+     * - Campos para usuario, contraseña y confirmación
+     * - Selector de rol (A/U)
+     * - Botones para registrarse o volver</p>
+     */
 
     public void dibuixaPantallaRegistre(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
@@ -176,6 +228,18 @@ public class GUI {
         p5.text("Elige tu rol", sRegistre.x+125, sRegistre.y-20);
     }
 
+    /**
+     * Dibuja la pantalla de gestión de gastos del hogar.
+     *
+     * @param p5 Objeto PApplet de Processing para el dibujo
+     *
+     * <p>Este método muestra:
+     * - Selector de tipo de gasto (Electricidad, Agua, Compra)
+     * - Campos para identificador e importe
+     * - Radio buttons para indicar si es un gasto compartido
+     * - Botones para aplicar cambios o resetear</p>
+     */
+
     public void dibuixaPantallaCasa(PApplet p5){
         p5.background(colorsGUI.getFirstColor());
         bVolver.display(p5);
@@ -184,12 +248,14 @@ public class GUI {
         bAplicar.display(p5);
         bReset.display(p5);
         tID.display(p5);
+        rBCasa.display(p5);
         p5.fill(0);
         p5.textFont(this.fontsGUI.getThirdFont());
         p5.textSize(midaTitol);
         p5.text("Identificador", tID.x+155, tID.y-20);
         p5.text("Motivo", sCasa.x+95, tID.y-20);
         p5.text("Importe", tCasa.x+95, tID.y-20);
+        p5.text("Compartido", rB1.x+95, tID.y-20);
     }
 
     public void dibuixaPantallaOci(PApplet p5){
@@ -197,9 +263,11 @@ public class GUI {
         bVolver.display(p5);
         bAplicar.display(p5);
         bReset.display(p5);
-        cBMembre1.display(p5);
-        cBMembre2.display(p5);
-        cBMembre3.display(p5);
+        rBCasa.display(p5);
+        p5.fill(0);
+        p5.textFont(this.fontsGUI.getThirdFont());
+        p5.textSize(midaTitol);
+        p5.text("Compartido", rB1.x+95, tID.y-20);
         sFamilia.display(p5);
         tFamilia.display(p5);
     }
@@ -210,9 +278,11 @@ public class GUI {
         bAplicar.display(p5);
         bReset.display(p5);
         sGrafic.display(p5);
-        cBMembre1.display(p5);
-        cBMembre2.display(p5);
-        cBMembre3.display(p5);
+        rBCasa.display(p5);
+        p5.fill(0);
+        p5.textFont(this.fontsGUI.getThirdFont());
+        p5.textSize(midaTitol);
+        p5.text("Compartido", rB1.x+95, tID.y-20);
         rBGrafic1.display(p5);
         if (showrBGrafic2 == true){rBGrafic2.display(p5);};
         if (showrBGrafic3 == true){rBGrafic3.display(p5);};

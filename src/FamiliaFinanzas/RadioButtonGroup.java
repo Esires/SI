@@ -22,6 +22,10 @@ public class RadioButtonGroup {
         selectedOption = n;
     }
 
+    public String getSelectedText(){
+        return rbuttons[selectedOption].texto;
+    }
+
     public void display(PApplet p5){
         for(int i=0; i<rbuttons.length; i++){
             if(rbuttons[i]!=null){
