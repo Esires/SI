@@ -57,7 +57,12 @@
       const fb = typeof b.fecha === 'string' ? b.fecha : '';
       if (!fa) return fb ? 1 : 0;
       if (!fb) return -1;
-      return fb.localeCompare(fa);
+      if (fa !== fb) return fb.localeCompare(fa);
+      const ca = typeof a.creado === 'string' ? a.creado : '';
+      const cb = typeof b.creado === 'string' ? b.creado : '';
+      if (!ca) return cb ? 1 : 0;
+      if (!cb) return -1;
+      return cb.localeCompare(ca);
     });
   }
 

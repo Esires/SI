@@ -56,6 +56,15 @@ test('ordenarVideos: fecha desc, sin fecha al final, no muta', () => {
   assert.deepEqual(lista, copia);
 });
 
+test('ordenarVideos: misma fecha, el apuntado más tarde (creado) va primero; sin creado al final', () => {
+  const lista = [
+    { canal: '@viejo', fecha: '2026-11-05' },
+    { canal: '@a', fecha: '2026-11-05', creado: '2026-11-05T20:00:00Z' },
+    { canal: '@b', fecha: '2026-11-05', creado: '2026-11-05T21:00:00Z' },
+  ];
+  assert.deepEqual(H.ordenarVideos(lista).map(x => x.canal), ['@b', '@a', '@viejo']);
+});
+
 test('filtrar por canal', () => {
   const lista = [v('@A ', 'x', 1, 1), v('@b', 'x', 1, 1)];
   assert.equal(H.filtrar(lista, null).length, 2);
