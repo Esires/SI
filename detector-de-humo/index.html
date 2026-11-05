@@ -95,6 +95,7 @@ summary::-webkit-details-marker { display: none; }
 .ficha .humo li::marker { content: "✕  "; color: var(--bad); }
 .ficha .verdad li::marker { content: "✓  "; color: var(--ok); }
 
+.ver-video { justify-self: start; color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .estado { background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; padding: 20px 16px; color: var(--muted); }
 .estado strong { display: block; color: var(--ink); margin-bottom: 4px; }
 footer { color: var(--muted); font-size: 13px; }
@@ -248,6 +249,12 @@ footer { color: var(--muted); font-size: 13px; }
        bloque('Es humo', lista(v.humo, 'humo')),
        bloque('Veredicto', texto(v.veredicto) && el('p', null, v.veredicto))]
         .filter(Boolean).forEach(x => ficha.append(x));
+      const url = H.enlaceSeguro(v.enlace);
+      if (url) {
+        const a = el('a', 'ver-video', 'Ver el vídeo');
+        a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+        ficha.append(a);
+      }
       if (!ficha.children.length) ficha.append(el('p', 'hint', 'Este vídeo no tiene más detalles.'));
       d.append(ficha);
       lv.append(d);

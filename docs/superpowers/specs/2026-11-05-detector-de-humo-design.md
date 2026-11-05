@@ -50,6 +50,8 @@ Colección `videos`, un documento por vídeo:
 | `humo` | lista de textos | lo que exagera o es falso |
 | `veredicto` | texto | qué se decidió / qué se hizo |
 | `instalado` | sí/no | si se instaló algo del vídeo |
+| `enlace` | texto (opcional) | enlace al vídeo, solo `https://`; en la ficha sale "Ver el vídeo" |
+| `creado` | fecha y hora ISO (opcional) | cuándo se apuntó; desempata vídeos del mismo día (el último, primero) |
 | `notaVerdad` | número 0–10 | ¿lo que cuenta es cierto? |
 | `notaUtilidad` | número 0–10 | ¿le sirve al usuario? |
 

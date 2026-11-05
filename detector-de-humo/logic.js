@@ -77,7 +77,13 @@
     return Number.isInteger(r) ? String(r) : r.toFixed(1).replace('.', ',');
   }
 
-  const api = { nota, media, semaforo, claveCanal, ranking, ordenarVideos, filtrar, fmt };
+  function enlaceSeguro(url) {
+    if (typeof url !== 'string') return null;
+    const u = url.trim();
+    return /^https:\/\/[^\s]+$/i.test(u) ? u : null;
+  }
+
+  const api = { nota, media, semaforo, claveCanal, ranking, ordenarVideos, filtrar, fmt, enlaceSeguro };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.Humo = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

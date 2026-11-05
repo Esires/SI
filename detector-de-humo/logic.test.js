@@ -65,6 +65,14 @@ test('ordenarVideos: misma fecha, el apuntado más tarde (creado) va primero; si
   assert.deepEqual(H.ordenarVideos(lista).map(x => x.canal), ['@b', '@a', '@viejo']);
 });
 
+test('enlaceSeguro solo acepta https', () => {
+  assert.equal(H.enlaceSeguro('https://vm.tiktok.com/ZN8fjqCdd/'), 'https://vm.tiktok.com/ZN8fjqCdd/');
+  assert.equal(H.enlaceSeguro(' https://www.tiktok.com/@a/video/1 '), 'https://www.tiktok.com/@a/video/1');
+  assert.equal(H.enlaceSeguro('javascript:alert(1)'), null);
+  assert.equal(H.enlaceSeguro('http://tiktok.com'), null);
+  assert.equal(H.enlaceSeguro(undefined), null);
+});
+
 test('filtrar por canal', () => {
   const lista = [v('@A ', 'x', 1, 1), v('@b', 'x', 1, 1)];
   assert.equal(H.filtrar(lista, null).length, 2);
