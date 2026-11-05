@@ -1,0 +1,286 @@
+<title>Detector de humo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
+<style>
+/* Layout: una columna estrecha; arriba el humómetro de canales (barra 0–10 con zonas), debajo la lista de vídeos desplegables. */
+:root {
+  --bg: #EDF0F2;        /* aire con un poco de humo */
+  --surface: #FFFFFF;
+  --ink: #18212B;
+  --muted: #5A6774;
+  --line: #D3DAE0;
+  --accent: #2B50D6;    /* azul de señal, solo para interacción */
+  --ok: #1E8E4E;  --ok-soft: #DDF1E5;
+  --warn: #B97E00; --warn-soft: #FBEFCF;
+  --bad: #C93A2A; --bad-soft: #F9DFDA;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #12181E; --surface: #1A222A; --ink: #E5EBF0; --muted: #91A0AD; --line: #2A3540;
+  --accent: #8AA4FF;
+  --ok: #4CC983; --ok-soft: #173326; --warn: #E8B640; --warn-soft: #3A2F12; --bad: #F07462; --bad-soft: #3E1F1A;
+  color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #12181E; --surface: #1A222A; --ink: #E5EBF0; --muted: #91A0AD; --line: #2A3540;
+  --accent: #8AA4FF;
+  --ok: #4CC983; --ok-soft: #173326; --warn: #E8B640; --warn-soft: #3A2F12; --bad: #F07462; --bad-soft: #3E1F1A;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 48px;
+}
+.wrap { max-width: 640px; margin: 0 auto; display: grid; gap: 36px; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(34px, 9vw, 52px); font-stretch: 125%; font-weight: 800; line-height: 1; letter-spacing: -0.01em; }
+h2 { font-size: 19px; font-stretch: 110%; font-weight: 700; }
+.lead { margin: 10px 0 0; color: var(--muted); max-width: 52ch; }
+.num { font-variant-numeric: tabular-nums; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+/* Semáforo: color + palabra, nunca solo color */
+.pill { align-self: start; justify-self: end; display: inline-flex; align-items: center; gap: 6px; padding: 2px 9px 2px 7px; border-radius: 999px;
+  font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 14px; }
+.pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.pill small { font-weight: 500; font-size: 12px; }
+.verde { color: var(--ok); background: var(--ok-soft); }
+.amarillo { color: var(--warn); background: var(--warn-soft); }
+.rojo { color: var(--bad); background: var(--bad-soft); }
+.sin { color: var(--muted); background: transparent; border: 1px dashed var(--line); }
+
+/* Canales: humómetro */
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.hint { color: var(--muted); font-size: 13px; }
+.canales { display: grid; gap: 2px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.canal { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; align-items: center; text-align: left;
+  background: var(--surface); border: 0; padding: 14px 16px; cursor: pointer; }
+.canal:hover { background: color-mix(in srgb, var(--surface) 92%, var(--accent)); }
+.canal[aria-pressed="true"] { box-shadow: inset 4px 0 0 var(--accent); }
+.canal-nombre { font-weight: 700; min-width: 0; overflow-wrap: anywhere; }
+.canal-sub { color: var(--muted); font-size: 13px; grid-column: 1 / -1; display: flex; gap: 14px; flex-wrap: wrap; }
+.gauge { grid-column: 1 / -1; position: relative; height: 10px; border-radius: 5px;
+  background: linear-gradient(90deg, var(--bad-soft) 0 40%, var(--warn-soft) 40% 70%, var(--ok-soft) 70% 100%); }
+.gauge i { position: absolute; top: -3px; width: 4px; height: 16px; border-radius: 2px; background: var(--ink); transform: translateX(-2px); }
+.escala { position: relative; height: 16px; margin: 6px 17px 0; color: var(--muted); font-size: 11px; }
+.escala span { position: absolute; top: 0; transform: translateX(-50%); white-space: nowrap; }
+.escala span:first-child { left: 0; transform: none; }
+.escala span:last-child { right: 0; transform: none; }
+
+/* Vídeos */
+.filtro { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; color: var(--muted); }
+.link { background: none; border: 0; padding: 0; color: var(--accent); font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.videos { display: grid; gap: 10px; }
+details.video { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+details.video[open] { border-color: color-mix(in srgb, var(--line) 50%, var(--accent)); }
+summary { list-style: none; cursor: pointer; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; }
+summary::-webkit-details-marker { display: none; }
+.v-titulo { font-weight: 700; min-width: 0; overflow-wrap: anywhere; }
+.v-meta { color: var(--muted); font-size: 13px; display: flex; gap: 12px; flex-wrap: wrap; grid-column: 1; min-width: 0; }
+.v-notas { grid-column: 1 / -1; display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.v-notas b { color: var(--ink); }
+.instalado { color: var(--ok); font-weight: 600; }
+.ficha { border-top: 1px solid var(--line); padding: 14px 16px 16px; display: grid; gap: 14px; }
+.ficha h3 { margin: 0 0 4px; font-size: 13px; font-weight: 700; color: var(--muted); }
+.ficha p, .ficha ul { margin: 0; max-width: 62ch; }
+.ficha ul { padding-left: 18px; display: grid; gap: 4px; }
+.ficha .humo li::marker { content: "✕  "; color: var(--bad); }
+.ficha .verdad li::marker { content: "✓  "; color: var(--ok); }
+
+.estado { background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; padding: 20px 16px; color: var(--muted); }
+.estado strong { display: block; color: var(--ink); margin-bottom: 4px; }
+footer { color: var(--muted); font-size: 13px; }
+@media (prefers-reduced-motion: no-preference) { details.video[open] .ficha { animation: abrir .18s ease-out; } }
+@keyframes abrir { from { opacity: .4; transform: translateY(-4px); } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Detector de humo</h1>
+    <p class="lead" id="resumen">Lo que prometen los vídeos sobre Claude, y lo que es verdad.</p>
+  </header>
+
+  <section aria-labelledby="t-canales">
+    <div class="section-head">
+      <h2 id="t-canales">Canales</h2>
+      <span class="hint">Toca uno para ver solo sus vídeos</span>
+    </div>
+    <div id="canales" class="canales" hidden></div>
+    <div id="escala" class="escala num" hidden aria-hidden="true"><span>0 humo</span><span style="left:40%">4</span><span style="left:70%">7</span><span>10 fiable</span></div>
+  </section>
+
+  <section aria-labelledby="t-videos">
+    <div class="section-head">
+      <h2 id="t-videos">Vídeos</h2>
+      <span class="hint">Media = 40 % Verdad + 60 % Utilidad</span>
+    </div>
+    <div id="filtro" class="filtro" hidden></div>
+    <div id="videos" class="videos"></div>
+    <div id="estado" class="estado"><strong>Cargando vídeos…</strong></div>
+  </section>
+
+  <footer>Para añadir un vídeo, pásaselo a Claude en el chat. Él lo analiza y lo apunta aquí.</footer>
+</div>
+
+<script src="logic.js"></script>
+<script>
+(function () {
+  const H = window.Humo;
+  const ETIQUETA = { verde: 'Fiable', amarillo: 'Exagera', rojo: 'Humo' };
+  let videos = [];
+  let filtro = null;
+
+  const $ = id => document.getElementById(id);
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined && text !== null) e.textContent = String(text);
+    return e;
+  }
+  function pill(n) {
+    const color = H.semaforo(n);
+    const p = el('span', 'pill ' + (color || 'sin'), H.fmt(n));
+    if (color) p.append(' ', el('small', null, ETIQUETA[color]));
+    return p;
+  }
+  function lista(items, cls) {
+    const arr = Array.isArray(items) ? items.filter(x => typeof x === 'string' && x.trim()) : [];
+    if (!arr.length) return null;
+    const ul = el('ul', cls);
+    arr.forEach(t => ul.append(el('li', null, t)));
+    return ul;
+  }
+  function bloque(titulo, contenido) {
+    if (!contenido) return null;
+    const d = el('div');
+    d.append(el('h3', null, titulo), contenido);
+    return d;
+  }
+  function texto(x) { return typeof x === 'string' && x.trim() ? x : null; }
+  function fecha(f) {
+    if (typeof f !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(f)) return 'Sin fecha';
+    const [y, m, d] = f.split('-').map(Number);
+    return new Date(y, m - 1, d).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  function mostrarEstado(titulo, detalle) {
+    const e = $('estado');
+    e.replaceChildren(el('strong', null, titulo));
+    if (detalle) e.append(el('span', null, detalle));
+    e.hidden = false;
+  }
+
+  function render() {
+    const canales = H.ranking(videos);
+    const nCan = canales.length;
+    $('resumen').textContent = videos.length
+      ? `${videos.length} ${videos.length === 1 ? 'vídeo analizado' : 'vídeos analizados'} de ${nCan} ${nCan === 1 ? 'canal' : 'canales'}.`
+      : 'Lo que prometen los vídeos sobre Claude, y lo que es verdad.';
+
+    // Canales
+    const cont = $('canales');
+    cont.replaceChildren();
+    canales.forEach(c => {
+      const clave = H.claveCanal(c.canal);
+      const b = el('button', 'canal');
+      b.type = 'button';
+      b.setAttribute('aria-pressed', String(filtro === clave));
+      b.append(el('span', 'canal-nombre', c.canal), pill(c.media));
+      const sub = el('span', 'canal-sub num');
+      sub.append(el('span', null, `${c.n} ${c.n === 1 ? 'vídeo' : 'vídeos'}`),
+                 el('span', null, `Verdad ${H.fmt(c.verdad)}`),
+                 el('span', null, `Utilidad ${H.fmt(c.utilidad)}`));
+      b.append(sub);
+      const g = el('span', 'gauge');
+      g.setAttribute('aria-hidden', 'true');
+      if (c.media !== null) { const i = el('i'); i.style.left = (c.media * 10) + '%'; g.append(i); }
+      b.append(g);
+      b.addEventListener('click', () => { filtro = filtro === clave ? null : clave; render(); });
+      cont.append(b);
+    });
+    cont.hidden = !nCan;
+    $('escala').hidden = !nCan;
+
+    // Filtro
+    const f = $('filtro');
+    f.replaceChildren();
+    if (filtro) {
+      const actual = canales.find(c => H.claveCanal(c.canal) === filtro);
+      if (!actual) { filtro = null; return render(); }
+      const ver = el('button', 'link', 'Ver todos');
+      ver.type = 'button';
+      ver.addEventListener('click', () => { filtro = null; render(); });
+      f.append(el('span', null, `Solo vídeos de ${actual.canal}.`), ver);
+    }
+    f.hidden = !filtro;
+
+    // Vídeos
+    const abiertos = new Set([...document.querySelectorAll('details.video[open]')].map(d => d.dataset.id));
+    const lv = $('videos');
+    lv.replaceChildren();
+    H.ordenarVideos(H.filtrar(videos, filtro)).forEach(v => {
+      const d = el('details', 'video');
+      d.dataset.id = v._id;
+      if (abiertos.has(v._id)) d.open = true;
+      const s = el('summary');
+      s.append(el('span', 'v-titulo', texto(v.titulo) || 'Sin título'), pill(H.media(v)));
+      const meta = el('span', 'v-meta');
+      meta.append(el('span', null, texto(v.canal) || '(sin canal)'), el('span', 'num', fecha(v.fecha)));
+      if (v.instalado === true) meta.append(el('span', 'instalado', '✅ Instalado'));
+      s.append(meta);
+      const notas = el('span', 'v-notas num');
+      const nv = el('span', null, 'Verdad '); nv.append(el('b', null, H.fmt(H.nota(v.notaVerdad))));
+      const nu = el('span', null, 'Utilidad '); nu.append(el('b', null, H.fmt(H.nota(v.notaUtilidad))));
+      notas.append(nv, nu);
+      s.append(notas);
+      d.append(s);
+      const ficha = el('div', 'ficha');
+      [bloque('Lo que promete', texto(v.promete) && el('p', null, v.promete)),
+       bloque('Es verdad', lista(v.verdad, 'verdad')),
+       bloque('Es humo', lista(v.humo, 'humo')),
+       bloque('Veredicto', texto(v.veredicto) && el('p', null, v.veredicto))]
+        .filter(Boolean).forEach(x => ficha.append(x));
+      if (!ficha.children.length) ficha.append(el('p', 'hint', 'Este vídeo no tiene más detalles.'));
+      d.append(ficha);
+      lv.append(d);
+    });
+
+    if (!videos.length) mostrarEstado('Todavía no hay vídeos.', 'Pásale uno a Claude en el chat y aparecerá aquí.');
+    else $('estado').hidden = true;
+  }
+
+  async function iniciar() {
+    let db = null;
+    try { db = await window.claude?.use?.('db'); } catch (e) { db = null; }
+    if (!db) {
+      mostrarEstado('No se pueden cargar los vídeos.', 'Abre esta página desde claude.ai con tu sesión iniciada.');
+      return;
+    }
+    const espera = setTimeout(() => mostrarEstado('Los vídeos están tardando en cargar.', 'Comprueba tu conexión y vuelve a abrir la página.'), 10000);
+    db.collection('videos').onSnapshot(snap => {
+      clearTimeout(espera);
+      videos = snap.docs.map(doc => Object.assign({}, doc.data() || {}, { _id: doc.id }));
+      render();
+    }, err => {
+      clearTimeout(espera);
+      mostrarEstado('No se pueden cargar los vídeos.', 'Vuelve a abrir la página. Si sigue igual, díselo a Claude.');
+    });
+  }
+
+  // Modo prueba local: window.__DATOS_PRUEBA__ sustituye a la base de datos.
+  if (Array.isArray(window.__DATOS_PRUEBA__)) {
+    videos = window.__DATOS_PRUEBA__.map((v, i) => Object.assign({ _id: 'p' + i }, v));
+    render();
+  } else {
+    iniciar();
+  }
+})();
+</script>
