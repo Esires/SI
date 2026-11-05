@@ -30,9 +30,9 @@ propia (capacidad `db`). No usa GitHub, Netlify ni nada de pago. Los datos
 ## Flujo para añadir un vídeo
 
 1. El usuario pasa el vídeo a Claude por el chat.
-2. Claude lo analiza y propone las notas.
-3. El usuario dice "ok" o las cambia.
-4. Claude guarda el vídeo en la base de datos de la página (`ArtifactData`).
+2. Claude lo analiza, le pone las notas y lo guarda directamente en la base de
+   datos de la página (`ArtifactData`), sin pedir confirmación.
+3. Si el usuario no está de acuerdo, se lo dice a Claude y lo corrige.
 
 La página solo lee y muestra los datos.
 
