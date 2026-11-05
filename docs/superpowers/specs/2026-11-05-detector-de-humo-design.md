@@ -53,15 +53,16 @@ Colección `videos`, un documento por vídeo:
 | `notaVerdad` | número 0–10 | ¿lo que cuenta es cierto? |
 | `notaUtilidad` | número 0–10 | ¿le sirve al usuario? |
 
-La **Media** de un vídeo no se guarda: se calcula como
-`(notaVerdad + notaUtilidad) / 2`.
+La **Media** de un vídeo no se guarda: es una media ponderada que da más peso
+a la utilidad, `0,4 × notaVerdad + 0,6 × notaUtilidad`.
 
 Reglas de acceso: lectura para quien pueda ver la página, escritura solo el
 propietario.
 
 ## Cálculos
 
-- **Media del vídeo:** media de sus dos notas.
+- **Media del vídeo:** `0,4 × Verdad + 0,6 × Utilidad`. Si falta una de las
+  dos notas, la Media se muestra como "—".
 - **Por canal:** nº de vídeos, media de `notaVerdad`, media de `notaUtilidad`
   y media de las Medias. Se muestran con un decimal.
 - **Semáforo** (solo sobre la Media, del vídeo o del canal):
