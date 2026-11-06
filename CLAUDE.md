@@ -17,10 +17,12 @@ Habla en español, de tú, claro y sin rollo. El usuario no programa.
    - Enlace: `yt-dlp -q --no-warnings --write-info-json -o "video.%(ext)s" <enlace>`
      (el `.info.json` trae el canal y la descripción). Los carruseles de fotos
      (`/photo/`) no se pueden bajar: pide capturas.
-   - Si falta algún programa: `pip install -q faster-whisper yt-dlp`.
-   - Si la red bloquea un servidor de TikTok o Hugging Face, mira cuál en
-     `curl -sS "$HTTPS_PROXY/__agentproxy/status"` y pide añadirlo con las
-     herramientas del entorno (`get_environment` → `update_environment`).
+   - Si falta algún programa: `pip install -q faster-whisper yt-dlp`. En el
+     portátil (Windows) yt-dlp ya está; **ffmpeg no**: antes de instalarlo,
+     pregúntale (`winget install Gyan.FFmpeg`).
+   - Solo en sesiones en la nube: si la red bloquea un servidor de TikTok o
+     Hugging Face, mira cuál en `curl -sS "$HTTPS_PROXY/__agentproxy/status"` y
+     pide añadirlo con `get_environment` → `update_environment`.
 2. **Míralo y escúchalo:**
    - Fotogramas: `ffmpeg -v error -i video.mp4 -vf "fps=1/2,scale=480:-1,tile=5x2" sheet_%02d.jpg`
      y lee las imágenes.
@@ -69,3 +71,21 @@ Habla en español, de tú, claro y sin rollo. El usuario no programa.
 
 Si el usuario no está de acuerdo con una nota, cámbiala con `ArtifactData`
 `update` (con el `if_version` que leíste).
+
+## Si te pide cambiar la página
+
+- **Cómo está hecha:** un solo `index.html` (HTML + CSS + JS, sin framework) que carga
+  `logic.js` (notas, media y semáforo). Lee la colección `videos` con
+  `window.claude.use('db')`.
+- **Probar:** `node --test detector-de-humo/logic.test.js`. Para ver el diseño fuera de
+  claude.ai, copia la carpeta al scratchpad y define antes `window.__DATOS_PRUEBA__` con una
+  lista de vídeos (se pueden bajar con `ArtifactData list` + `out_dir`); la página la usa en
+  vez de la base de datos. En local faltan el `<meta charset>` y el `viewport` que añade
+  claude.ai: los acentos raros y el móvil mal encajado de esa copia no son fallos reales.
+- **Publicar:** con el Artifact tool a la URL que te da el usuario (`file_path` =
+  `detector-de-humo/index.html`, `files` = `logic.js`), sin pasar `capabilities` para que
+  conserve su base de datos. Pregunta antes de publicar.
+- **Cambios de diseño:** antes de darlos por hechos, abre la página en el navegador integrado,
+  mírala a ancho de móvil (375 px), haz captura y comprueba cómo queda.
+- **No tocar:** los vídeos guardados (solo se cambian con `ArtifactData`, nunca se
+  borran sin que lo pida) y, otra vez, nada de notas ni URL en el repo: es público.
