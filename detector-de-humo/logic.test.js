@@ -48,21 +48,29 @@ test('ranking agrupa canales escritos distinto y ordena por media desc', () => {
   assert.ok(Math.abs(r[2].utilidad - 2) < 1e-9);
 });
 
-test('ordenarVideos: fecha desc, sin fecha al final, no muta', () => {
-  const lista = [v('@a', '2026-11-01', 1, 1), v('@b', undefined, 1, 1), v('@c', '2026-11-05', 1, 1)];
+test('ordenarVideos: por media de mayor a menor, sin nota al final, no muta', () => {
+  const lista = [v('@a', '2026-11-05', 3, 2), v('@b', '2026-11-01', 8, 8), v('@sin', '2026-11-06'), v('@c', '2026-11-03', 6, 5)];
   const copia = lista.slice();
   const o = H.ordenarVideos(lista);
-  assert.deepEqual(o.map(x => x.canal), ['@c', '@a', '@b']);
+  assert.deepEqual(o.map(x => x.canal), ['@b', '@c', '@a', '@sin']);
   assert.deepEqual(lista, copia);
 });
 
-test('ordenarVideos: misma fecha, el apuntado más tarde (creado) va primero; sin creado al final', () => {
+test('ordenarVideos: misma media, el más reciente primero (fecha y luego creado); sin fecha al final', () => {
   const lista = [
-    { canal: '@viejo', fecha: '2026-11-05' },
-    { canal: '@a', fecha: '2026-11-05', creado: '2026-11-05T20:00:00Z' },
-    { canal: '@b', fecha: '2026-11-05', creado: '2026-11-05T21:00:00Z' },
+    { canal: '@sinfecha', notaVerdad: 5, notaUtilidad: 5 },
+    { canal: '@viejo', fecha: '2026-11-05', notaVerdad: 5, notaUtilidad: 5 },
+    { canal: '@a', fecha: '2026-11-05', creado: '2026-11-05T20:00:00Z', notaVerdad: 5, notaUtilidad: 5 },
+    { canal: '@b', fecha: '2026-11-05', creado: '2026-11-05T21:00:00Z', notaVerdad: 5, notaUtilidad: 5 },
+    { canal: '@nuevo', fecha: '2026-11-08', notaVerdad: 5, notaUtilidad: 5 },
   ];
-  assert.deepEqual(H.ordenarVideos(lista).map(x => x.canal), ['@b', '@a', '@viejo']);
+  assert.deepEqual(H.ordenarVideos(lista).map(x => x.canal), ['@nuevo', '@b', '@a', '@viejo', '@sinfecha']);
+});
+
+test('ordenarVideos: medias que solo difieren por redondeo cuentan como empate', () => {
+  // 0,4*6 + 0,6*4 = 4,8 y 0,4*3 + 0,6*6 = 4,8 (en coma flotante pueden salir distintas)
+  const lista = [v('@viejo', '2026-11-01', 6, 4), v('@nuevo', '2026-11-08', 3, 6)];
+  assert.deepEqual(H.ordenarVideos(lista).map(x => x.canal), ['@nuevo', '@viejo']);
 });
 
 test('enlaceSeguro solo acepta https', () => {

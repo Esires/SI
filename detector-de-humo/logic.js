@@ -51,18 +51,32 @@
     });
   }
 
+  // Más reciente primero: por fecha y, si coincide, por la hora en que se apuntó (creado).
+  function compararRecientes(a, b) {
+    const fa = typeof a.fecha === 'string' ? a.fecha : '';
+    const fb = typeof b.fecha === 'string' ? b.fecha : '';
+    if (!fa) return fb ? 1 : 0;
+    if (!fb) return -1;
+    if (fa !== fb) return fb.localeCompare(fa);
+    const ca = typeof a.creado === 'string' ? a.creado : '';
+    const cb = typeof b.creado === 'string' ? b.creado : '';
+    if (!ca) return cb ? 1 : 0;
+    if (!cb) return -1;
+    return cb.localeCompare(ca);
+  }
+
+  // Vídeos por media de mayor a menor; sin nota, al final; empate, el más reciente primero.
   function ordenarVideos(videos) {
+    const redondeo = n => (n === null ? null : Math.round(n * 100) / 100);
     return (videos || []).slice().sort((a, b) => {
-      const fa = typeof a.fecha === 'string' ? a.fecha : '';
-      const fb = typeof b.fecha === 'string' ? b.fecha : '';
-      if (!fa) return fb ? 1 : 0;
-      if (!fb) return -1;
-      if (fa !== fb) return fb.localeCompare(fa);
-      const ca = typeof a.creado === 'string' ? a.creado : '';
-      const cb = typeof b.creado === 'string' ? b.creado : '';
-      if (!ca) return cb ? 1 : 0;
-      if (!cb) return -1;
-      return cb.localeCompare(ca);
+      const ma = redondeo(media(a));
+      const mb = redondeo(media(b));
+      if (ma !== mb) {
+        if (ma === null) return 1;
+        if (mb === null) return -1;
+        return mb - ma;
+      }
+      return compararRecientes(a, b);
     });
   }
 
