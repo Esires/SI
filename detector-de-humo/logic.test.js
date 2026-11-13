@@ -94,3 +94,15 @@ test('fmt con coma y un decimal', () => {
   assert.equal(H.fmt(6.04), '6');
   assert.equal(H.fmt(null), '—');
 });
+
+test('ordenarPorEnvio: el último enviado primero, sin mirar la nota; sin fecha al final; no muta', () => {
+  const lista = [
+    { canal: '@alta', fecha: '2026-11-05', creado: '2026-11-05T10:00:00Z', notaVerdad: 10, notaUtilidad: 10 },
+    { canal: '@sinfecha', notaVerdad: 9, notaUtilidad: 9 },
+    { canal: '@hoy-tarde', fecha: '2026-11-13', creado: '2026-11-13T18:00:00Z', notaVerdad: 1, notaUtilidad: 1 },
+    { canal: '@hoy-pronto', fecha: '2026-11-13', creado: '2026-11-13T09:00:00Z', notaVerdad: 5, notaUtilidad: 5 },
+  ];
+  const copia = lista.map(x => x.canal);
+  assert.deepEqual(H.ordenarPorEnvio(lista).map(x => x.canal), ['@hoy-tarde', '@hoy-pronto', '@alta', '@sinfecha']);
+  assert.deepEqual(lista.map(x => x.canal), copia);
+});

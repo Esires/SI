@@ -53,7 +53,7 @@ Habla en español, de tú, claro y sin rollo. El usuario no programa.
    |---|---|
    | `canal` | `@usuario` |
    | `titulo` | de qué va, corto |
-   | `fecha` | hoy, `AAAA-MM-DD` |
+   | `fecha` | hoy, `AAAA-MM-DD` (el día que te lo manda: la página lo enseña como "Me lo mandaste el…" y ordena por ella con "Por fecha de envío") |
    | `creado` | ahora, ISO UTC (`2026-11-05T22:00:00Z`) |
    | `enlace` | el enlace del vídeo, si lo hay (solo `https://`) |
    | `promete` | resumen de lo que vende |

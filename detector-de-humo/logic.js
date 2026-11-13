@@ -80,6 +80,11 @@
     });
   }
 
+  // Por orden de envío: el último que se mandó, primero.
+  function ordenarPorEnvio(videos) {
+    return (videos || []).slice().sort(compararRecientes);
+  }
+
   function filtrar(videos, clave) {
     if (!clave) return (videos || []).slice();
     return (videos || []).filter(v => claveCanal(v.canal) === clave);
@@ -97,7 +102,7 @@
     return /^https:\/\/[^\s]+$/i.test(u) ? u : null;
   }
 
-  const api = { nota, media, semaforo, claveCanal, ranking, ordenarVideos, filtrar, fmt, enlaceSeguro };
+  const api = { nota, media, semaforo, claveCanal, ranking, ordenarVideos, ordenarPorEnvio, filtrar, fmt, enlaceSeguro };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.Humo = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

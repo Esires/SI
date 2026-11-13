@@ -76,6 +76,10 @@ button { font: inherit; color: inherit; }
 .escala span:last-child { right: 0; transform: none; }
 
 /* Vídeos */
+.orden { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 2px; background: var(--surface); }
+.orden button { border: 0; background: none; padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; }
+.orden button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.orden-hint { margin: -4px 0 12px; }
 .filtro { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; color: var(--muted); }
 .link { background: none; border: 0; padding: 0; color: var(--accent); font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .videos { display: grid; gap: 10px; }
@@ -121,8 +125,12 @@ footer { color: var(--muted); font-size: 13px; }
   <section aria-labelledby="t-videos">
     <div class="section-head">
       <h2 id="t-videos">Vídeos</h2>
-      <span class="hint">De mejor a peor nota · Media = 40 % Verdad + 60 % Utilidad</span>
+      <div class="orden" role="group" aria-label="Ordenar vídeos">
+        <button type="button" data-orden="nota" aria-pressed="true">Por nota</button>
+        <button type="button" data-orden="envio" aria-pressed="false">Por fecha de envío</button>
+      </div>
     </div>
+    <p id="orden-hint" class="hint orden-hint">De mejor a peor nota · Media = 40 % Verdad + 60 % Utilidad</p>
     <div id="filtro" class="filtro" hidden></div>
     <div id="videos" class="videos"></div>
     <div id="estado" class="estado"><strong>Cargando vídeos…</strong></div>
@@ -138,6 +146,13 @@ footer { color: var(--muted); font-size: 13px; }
   const ETIQUETA = { verde: 'Fiable', amarillo: 'Exagera', rojo: 'Humo' };
   let videos = [];
   let filtro = null;
+  let orden = 'nota';
+  try { if (localStorage.getItem('humo-orden') === 'envio') orden = 'envio'; } catch (e) {}
+  document.querySelectorAll('.orden button').forEach(b => b.addEventListener('click', () => {
+    orden = b.dataset.orden;
+    try { localStorage.setItem('humo-orden', orden); } catch (e) {}
+    render();
+  }));
 
   const $ = id => document.getElementById(id);
   function el(tag, cls, text) {
@@ -170,6 +185,10 @@ footer { color: var(--muted); font-size: 13px; }
     if (typeof f !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(f)) return 'Sin fecha';
     const [y, m, d] = f.split('-').map(Number);
     return new Date(y, m - 1, d).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+  function enviado(f) {
+    const t = fecha(f);
+    return t === 'Sin fecha' ? 'Sin fecha de envío' : 'Me lo mandaste el ' + t;
   }
 
   function mostrarEstado(titulo, detalle) {
@@ -227,14 +246,19 @@ footer { color: var(--muted); font-size: 13px; }
     const abiertos = new Set([...document.querySelectorAll('details.video[open]')].map(d => d.dataset.id));
     const lv = $('videos');
     lv.replaceChildren();
-    H.ordenarVideos(H.filtrar(videos, filtro)).forEach(v => {
+    document.querySelectorAll('.orden button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.orden === orden)));
+    $('orden-hint').textContent = orden === 'envio'
+      ? 'El último que le mandaste a Claude, primero'
+      : 'De mejor a peor nota · Media = 40 % Verdad + 60 % Utilidad';
+    const ordenar = orden === 'envio' ? H.ordenarPorEnvio : H.ordenarVideos;
+    ordenar(H.filtrar(videos, filtro)).forEach(v => {
       const d = el('details', 'video');
       d.dataset.id = v._id;
       if (abiertos.has(v._id)) d.open = true;
       const s = el('summary');
       s.append(el('span', 'v-titulo', texto(v.titulo) || 'Sin título'), pill(H.media(v)));
       const meta = el('span', 'v-meta');
-      meta.append(el('span', null, texto(v.canal) || '(sin canal)'), el('span', 'num', fecha(v.fecha)));
+      meta.append(el('span', null, texto(v.canal) || '(sin canal)'), el('span', 'num', enviado(v.fecha)));
       if (v.instalado === true) meta.append(el('span', 'instalado', '✅ Instalado'));
       s.append(meta);
       const notas = el('span', 'v-notas num');
